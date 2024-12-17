@@ -16,8 +16,10 @@ const JobDescription = ({ jobDetails }) => {
   ))
 
   return (
-    <div className='w-full'>      
+    <div className='w-full'>
+        {/* Job Info */}      
         <div className='flex flex-col gap-3'>
+            {/* Work style and job type */}
             <div className='flex gap-2 items-center'>
                 <Briefcase06Icon className='text-gray-800'/>
                 <div className='flex justify-between items-center w-full'>
@@ -26,12 +28,13 @@ const JobDescription = ({ jobDetails }) => {
                         <div className='bg-gray-800 rounded-full w-1 h-1'/>
                         <span className='bg-secondary text-gray-800 px-2 py-1 rounded-md'>{jobDetails.jobType}</span>
                     </div>
-                    <div className='pr-2'>
+                    <div className='pr-4'>
                         <span className='text-sm text-gray-600'>Posted {jobDetails.datePosted} ago</span>
                     </div>
                 </div>
             </div>
-
+            
+            {/* Salary */}
             <div className='flex gap-2 items-center'>
                 <DollarCircleIcon className='text-gray-800'/>
                 <div className='flex items-center gap-2'>
@@ -40,11 +43,14 @@ const JobDescription = ({ jobDetails }) => {
                 </div>
             </div>
         </div>
+
+        {/* About the job */}
         <div className='mt-6'>
             <h1 className='text-2xl text-gray-800'>About the job</h1>
             <p className='text-gray-700 mt-2 pr-4'>{jobDetails.about}</p>
         </div>
-
+        
+        {/* Applicant Responsibilities */}
         <div className='mt-6'>
             <h1 className='text-2xl text-gray-800'>Job Responsibilities</h1>
             <ul className='mt-2 px-4'>
@@ -52,6 +58,7 @@ const JobDescription = ({ jobDetails }) => {
             </ul>
         </div>
 
+        {/* Required Skills */}
         <div className='mt-6 w-full'>
             <h1 className='text-2xl text-gray-800'>Required Skills</h1>
             <ul className='mt-4 flex flex-wrap gap-3'>
