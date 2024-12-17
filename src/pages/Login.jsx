@@ -12,7 +12,7 @@ import { ImagePlacehoderSkeleton } from '../skeletons/ImagePlaceholderSkeleton';
 const Login = () => {
   const [loaded, setLoaded] = useState(false);
   return (
-    <div className='flex flex-col items-center justify-center gap-10 w-full h-screen px-10'>
+    <div className='flex flex-col items-center justify-center gap-10 w-full h-screen px-6'>
       {/* Logo */}
       <div>
         {!loaded && <ImagePlacehoderSkeleton />}

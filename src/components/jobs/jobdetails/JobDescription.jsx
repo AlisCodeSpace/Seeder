@@ -1,5 +1,6 @@
 import React from 'react'
 import { Briefcase06Icon, DollarCircleIcon } from '../../../assets/icons/Icons'
+import { motion } from 'framer-motion';
 
 
 const JobDescription = ({ jobDetails }) => {
@@ -10,13 +11,13 @@ const JobDescription = ({ jobDetails }) => {
   ))
   
   const renderSkills = jobDetails.skills.map((skill, index) => (
-    <li key={index} className='text-gray-700 bg-gray-300 rounded-md py-1 px-2'>
+    <li key={index} className='text-gray-800 bg-gray-200 rounded-md py-1 px-2'>
         {skill}
     </li>
   ))
 
   return (
-    <div className='w-full'>
+    <div className='w-full flex flex-col gap-6 px-4'>
         {/* Job Info */}      
         <div className='flex flex-col gap-3'>
             {/* Work style and job type */}
@@ -45,25 +46,29 @@ const JobDescription = ({ jobDetails }) => {
         </div>
 
         {/* About the job */}
-        <div className='mt-6'>
+        <div>
             <h1 className='text-2xl text-gray-800'>About the job</h1>
-            <p className='text-gray-700 mt-2 pr-4'>{jobDetails.about}</p>
+            <p className='text-gray-700 mt-2'>{jobDetails.about}</p>
         </div>
         
         {/* Applicant Responsibilities */}
-        <div className='mt-6'>
+        <div>
             <h1 className='text-2xl text-gray-800'>Job Responsibilities</h1>
-            <ul className='mt-2 px-4'>
+            <ul className='mt-2 pl-4'>
                 {renderResponsibilities}
             </ul>
         </div>
 
         {/* Required Skills */}
-        <div className='mt-6 w-full'>
+        <div className='w-full'>
             <h1 className='text-2xl text-gray-800'>Required Skills</h1>
             <ul className='mt-4 flex flex-wrap gap-3'>
                 {renderSkills}
             </ul>
+        </div>
+
+        <div className='self-start w-full'>
+            <motion.button whileTap={{ scale: 0.9 }} className='bg-primary px-6 rounded-md py-2 text-white font-medium w-full'>Apply</motion.button>
         </div>
     </div>
   )

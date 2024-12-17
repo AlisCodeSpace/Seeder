@@ -18,11 +18,12 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />}>
           {/* Nested Routes for Home */}
           <Route path="jobs" element={<Jobs />} />
-          <Route path="jobs/:id" element={<JobDetails />} />
           <Route path="companies" element={<Companies />} />
           <Route path="applications" element={<Applications />} />
           <Route path="profile" element={<Profile />} />
         </Route>
+
+        <Route path="jobs/:id" element={<JobDetails />} />
 
         {/*Other Routes */}
         <Route path="/login" element={<Login />} />

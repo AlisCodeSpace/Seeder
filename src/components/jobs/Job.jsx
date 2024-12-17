@@ -14,7 +14,7 @@ const Job = ({ logo, path, companyName, position, jobType, city, country, workSt
   }
 
   const skillset = skills.map((skill, index) => (
-    <span key={index} className='rounded-sm bg-secondary text-primary text-sm font-medium px-3'>{skill}</span>
+    <span key={index} className='rounded-md bg-secondary text-gray-800 text-sm font-medium px-3'>{skill}</span>
   ))
 
   return (
@@ -26,7 +26,7 @@ const Job = ({ logo, path, companyName, position, jobType, city, country, workSt
               <span className='text-xs text-gray-600 mr-2'>Posted {datePosted} ago</span>
             </Link>
             <motion.button whileTap={{scale: 1.2}} className='z-50' onClick={handleSaveJob}>
-              <Bookmark02Icon fill={`${savedJob ? '#55883b' : 'transparent'}`} className={`${savedJob ? ' text-primary' : 'text-gray-600'}`}/>
+              <Bookmark02Icon fill={`${savedJob ? '#357960' : 'transparent'}`} className={`${savedJob ? ' text-primary' : 'text-gray-600'}`}/>
             </motion.button>
         </div>
         <Link to={`/jobs/${path}`} className='flex flex-col gap-2'>
