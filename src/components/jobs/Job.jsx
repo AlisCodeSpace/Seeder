@@ -14,7 +14,7 @@ const Job = ({ logo, path, companyName, position, jobType, city, country, workSt
   }
 
   const skillset = skills.map((skill, index) => (
-    <span key={index} className='rounded-md bg-secondary text-gray-800 text-sm font-medium px-3'>{skill}</span>
+    <span key={index} className='rounded-md bg-secondary text-primary text-sm font-medium px-3'>{skill}</span>
   ))
 
   return (
