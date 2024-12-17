@@ -1,0 +1,26 @@
+* {
+    font-family: 'Asap', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F0F0F0;
+}
+
+.underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #55883b;
+}
+
+.dark {
+    background-color: #202C36;
+}
+
+.navbar {
+    padding-top: env(safe-area-inset-top);
+}

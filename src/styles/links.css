@@ -1,0 +1,11 @@
+.link {
+    @apply hover:text-primary transition-all duration-200 ease-in-out text-lg text-gray-600;
+}
+
+.intext-link {
+    @apply text-primary font-medium;
+}
+
+.mobile-navlink {
+    @apply w-16 py-2 flex flex-col items-center gap-2 rounded-sm border-t-[3px];
+}
