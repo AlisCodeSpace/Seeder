@@ -71,7 +71,9 @@ const Jobs = () => {
   ))
 
   return (
-    <div className='flex flex-col items-center w-full gap-3'>
+    <div className='safe-header flex flex-col items-center w-full gap-3' style={{
+      paddingTop: 'env(safe-area-inset-top)',
+    }}>
       {/* <Filters /> */}
       <Header /> 
       <div className='flex flex-col items-center w-full gap-3 px-2 mt-4'>

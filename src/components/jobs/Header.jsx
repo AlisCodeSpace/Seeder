@@ -8,9 +8,7 @@ import { ImageWithTextSkeleton } from '../../skeletons/ImageWithText'
 const Header = () => {
   const [loaded, setLoaded] = useState(false) 
   return (
-    <div className='relative bg-primary w-full h-[200px] pl-4 pt-4 flex flex-col gap-8' style={{
-        paddingTop: 'env(safe-area-inset-top)',
-      }}>
+    <div className='relative bg-primary w-full h-[200px] pl-4 pt-4 flex flex-col gap-8'>
         <img src={Plant} width={156} alt="Plant" className='absolute right-0 bottom-5'/>
         {!loaded && <ImageWithTextSkeleton />}
         <div className={`gap-2 items-center ${loaded ? 'flex' : 'hidden'}`}>

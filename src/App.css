@@ -18,6 +18,11 @@ body {
     background: #55883b;
 }
 
+.safe-header {
+    padding-top: env(safe-area-inset-top);
+    background-color: #357960; /* Replace with your Header's bg color */
+}
+
 .dark {
     background-color: #202C36;
 }
