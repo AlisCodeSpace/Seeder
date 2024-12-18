@@ -1,8 +1,12 @@
 import React from 'react'
+import companyinfo from '../../../data/companyinfo'
 
 const CompanyInformation = () => {
+
   return (
-    <div>CompanyInformation</div>
+    <div>
+      
+    </div>
   )
 }
 
