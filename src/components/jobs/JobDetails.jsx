@@ -61,7 +61,7 @@ const JobDetails = () => {
             </div>
             <div className='flex flex-col mt-4 gap-1'>
                 <h1 className='text-2xl text-gray-800 font-medium'>{job.position}</h1>
-                <p className='text-gray-600 text-center'>{job.city}, {job.country}</p>
+                <p className='text-gray-600 text-center'>{job.companyName} - {job.city}, {job.country}</p>
             </div>
             <div className='relative self-start mt-14 w-full'>
                 <ul className='pl-4 flex gap-2'>
