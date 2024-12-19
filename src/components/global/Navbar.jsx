@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 import Seeder from "../../assets/images/Seeder.png";
 
@@ -8,6 +9,14 @@ import navlinks from '../../data/navlinks'
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Check screen size
+  const [activeLink, setActiveLink] = useState('')
+
+  const location = useLocation(); // Hook to get the current route
+
+  useEffect(() => {
+    // Set the active link based on the current pathname
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
 
 
   // Update isMobile state on screen resize
@@ -47,18 +56,30 @@ const Navbar = () => {
     </div>
   );
 
-  const renderNavLinks = navlinks.map((link, index) => (
-    <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary border-primary' : 'text-gray-600 border-transparent'}`}>
+  const renderNavLinks = navlinks.map((link, index) => 
+    (
+    <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary' : 'text-gray-600'}`}>
         <span>{React.createElement(link.icon)}</span>
         <span className="text-sm font-medium">{link.text}</span>
+
+        {activeLink === link.path && (
+          <motion.div
+            className="absolute top-0 left-0 h-[2px] bg-primary w-1/5 rounded-full"
+            layoutId="underline"
+            animate={{
+              left: `${index * 20}%`, 
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        )}
     </NavLink>
   ))
 
   const renderMobileNav = () => (
     <div>
-        <div className="w-full h-16"></div>
+        {/* <div className="w-full h-16"></div> */}
         <nav className="fixed bottom-0 w-full border shadow-md bg-white z-50">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-around items-center">
                 {renderNavLinks}
             </div>
         </nav>

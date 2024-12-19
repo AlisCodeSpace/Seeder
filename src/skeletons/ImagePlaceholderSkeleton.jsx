@@ -3,7 +3,7 @@
 export function ImagePlacehoderSkeleton() {
   return (
     <div className="flex animate-pulse flex-wrap items-center gap-8">
-      <div className="grid h-[192px] w-[192px] place-items-center rounded-lg bg-gray-300">
+      <div className="grid h-[192px] w-[192px] place-items-center rounded-md bg-gray-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

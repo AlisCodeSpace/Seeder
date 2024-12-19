@@ -1,7 +1,10 @@
+import GoogleLogo from "../assets/images/google.png";
+import GithubLogo from "../assets/images/github.png";
 
 const companyinfo = [
   {
     id: 1,
+    logo: GoogleLogo,
     name: "Google",
     founded: "1998",
     employees: "170,000+",
@@ -51,6 +54,7 @@ const companyinfo = [
   },
   {
     id: 2,
+    logo: GoogleLogo,
     name: "Microsoft",
     founded: "1975",
     employees: "220,000+",
@@ -94,6 +98,7 @@ const companyinfo = [
   },
   {
     id: 3,
+    logo: GithubLogo,
     name: "Amazon",
     founded: "1994",
     employees: "1,540,000+",
@@ -131,6 +136,7 @@ const companyinfo = [
   },
   {
     id: 4,
+    logo: GoogleLogo,
     name: "Apple",
     founded: "1976",
     employees: "154,000+",
@@ -168,6 +174,7 @@ const companyinfo = [
   },
   {
     id: 5,
+    logo: GoogleLogo,
     name: "Tesla",
     founded: "2003",
     employees: "127,000+",

@@ -7,5 +7,5 @@
 }
 
 .mobile-navlink {
-    @apply w-16 py-2 flex flex-col items-center gap-2 rounded-sm border-t-[3px];
+    @apply w-16 py-2 flex flex-col items-center gap-1 rounded-sm;
 }

@@ -14,6 +14,7 @@ const joblist = [
     workStyle: "Remote",
     skills: ["React", ".NET", "SQL"],
     datePosted: "1d",
+    deadline: "30 April, 2024",
     salary: "$1200",
     about:
       "We are seeking skilled and motivated individuals with minimum 3-5 years of experience for multiple positions as Software Engineers and Developers. This is your opportunity to secure an evolutive career path with a SMART salary scheme, tailored to your relevant experience and aligned with the wider market.",
@@ -37,6 +38,7 @@ const joblist = [
     workStyle: "Hybrid",
     skills: ["Angular", "Laravel", "SQL"],
     datePosted: "5m",
+    deadline: "30 April, 2024",
     salary: "$2000",
     about:
       "We are seeking skilled and motivated individuals with minimum 3-5 years of experience for multiple positions as Software Engineers and Developers. This is your opportunity to secure an evolutive career path with a SMART salary scheme, tailored to your relevant experience and aligned with the wider market.",
@@ -60,6 +62,7 @@ const joblist = [
     workStyle: "Hybrid",
     skills: ["Angular", "Laravel", "SQL"],
     datePosted: "5m",
+    deadline: "30 April, 2024",
     salary: "$2000",
     about:
       "We are seeking skilled and motivated individuals with minimum 3-5 years of experience for multiple positions as Software Engineers and Developers. This is your opportunity to secure an evolutive career path with a SMART salary scheme, tailored to your relevant experience and aligned with the wider market.",

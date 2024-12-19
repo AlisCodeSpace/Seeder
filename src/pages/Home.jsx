@@ -6,7 +6,7 @@ import Navbar from "../components/global/Navbar"
 const Home = () => {
   return (
     <div className="relative container">
-      <div className="pb-8">
+      <div className="mb-24">
         <Outlet />
       </div>
       <Navbar />
