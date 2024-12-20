@@ -11,6 +11,8 @@ import { Bookmark02Icon } from '../../assets/icons/Icons'
 import { LinkBackwardIcon } from '../../assets/icons/Icons';
 
 import joblist from '../../data/joblist'
+import { AnimatedButton } from '../../ui/AnimatedButton';
+
 
 const JobDetails = () => {
     const { id } = useParams()
@@ -72,6 +74,9 @@ const JobDetails = () => {
                 <img src={job.logo} width={64} alt={`${job.companyName} Logo`} />
                 <h1 className='text-2xl text-gray-800 font-medium'>{job.position}</h1>
                 <p className='text-gray-600 text-center'>{job.companyName} - {job.city}, {job.country}</p>
+                <div className='mt-2'>
+                    <AnimatedButton />
+                </div>
             </div>
 
             <div className='relative self-start mt-14 w-full'>
