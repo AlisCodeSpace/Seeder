@@ -16,12 +16,3 @@ body {
     height: 1px;
     background: #55883b;
 }
-
-
-.dark {
-    background-color: #202C36;
-}
-
-.navbar {
-    padding-top: env(safe-area-inset-top);
-}

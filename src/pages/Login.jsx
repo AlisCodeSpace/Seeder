@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Seeder  from '../assets/images/Seeder.png'
 
 import LoginForm from '../components/login/LoginForm';
-import SocialLogin from '../components/login/SocialLogin';
+// import SocialLogin from '../components/login/SocialLogin';
 
 import { ImagePlacehoderSkeleton } from '../skeletons/ImagePlaceholderSkeleton';
 
@@ -16,7 +16,7 @@ const Login = () => {
       {/* Logo */}
       <div>
         {!loaded && <ImagePlacehoderSkeleton />}
-        <img src={Seeder} width={192} alt="Seeder Logo" onLoad={() => setLoaded(true)} className={`${
+        <img src={Seeder} width={168} alt="Seeder Logo" onLoad={() => setLoaded(true)} className={`${
           loaded ? "block" : "hidden"
         }`}/>
       </div>

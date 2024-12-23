@@ -1,35 +1,52 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// import PrivateRoutes from "./PrivateRoutes";
+import React, { lazy, Suspense, useEffect } from 'react';
+
+// Load normally
 import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
 import Jobs from "../pages/Jobs";
-import Companies from "../pages/Companies";
-import Applications from "../pages/Applications";
-import Profile from "../pages/Profile";
-import ForgotPassword from "../pages/ForgotPassword";
-import JobDetails from "../components/jobs/JobDetails";
+import LoadingScreen from '../skeletons/LoadingScreen';
+
+// Lazy load components
+const Login = lazy(() => import("../pages/Login"));
+const Register = lazy(() => import("../pages/Register"));
+const Companies = lazy(() => import("../pages/Companies"));
+const Applications = lazy(() => import("../pages/Applications"));
+const Profile = lazy(() => import("../pages/Profile"));
+const ForgotPassword = lazy(() => import("../pages/ForgotPassword"));
+const JobDetails = lazy(() => import("../components/jobs/JobDetails"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+
 
 const AppRoutes = () => {
+  useEffect(() => {
+    console.log('Importing Jobs')
+    import("../pages/Jobs");
+  }, []);
+
   return (
     <BrowserRouter future={{ v7_relativeSplatPath: true }}>
-      <Routes>
-        <Route index path="/" element={<Navigate to="jobs"/>} />
-        <Route path="/" element={<Home />}>
-          {/* Nested Routes for Home */}
-          <Route path="jobs" element={<Jobs />} />
-          <Route path="companies" element={<Companies />} />
-          <Route path="applications" element={<Applications />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
+      <Suspense fallback={<LoadingScreen />}>
+        <Routes>
+          <Route index path="/" element={<Navigate to="jobs"/>} />
+          <Route path="/" element={<Home />}>
+            {/* Nested Routes for Home */}
+            <Route path="jobs" element={<Jobs />} />
+            <Route path="companies" element={<Companies />} />
+            <Route path="applications" element={<Applications />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
 
-        <Route path="jobs/:id" element={<JobDetails />} />
+          <Route path="jobs/:id" element={<JobDetails />} />
 
-        {/*Other Routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgotpass" element={<ForgotPassword />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+          {/*Other Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgotpass" element={<ForgotPassword />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* Catch-all route for missing routes */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };

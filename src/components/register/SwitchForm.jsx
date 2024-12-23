@@ -1,5 +1,3 @@
-import React from 'react'
-
 const SwitchForm = ({ switchForm, setSwitchForm}) => {
   return (
     <div className='flex justify-between bg-slate-200 w-full p-2 rounded-sm'>

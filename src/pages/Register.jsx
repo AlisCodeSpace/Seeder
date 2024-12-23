@@ -47,7 +47,7 @@ const Register = () => {
       {/* Logo */}
       <div className='mb-5'>
         {!loaded && <ImagePlacehoderSkeleton />}
-        <img src={Seeder} width={192} alt="Seeder Logo" onLoad={() => setLoaded(true)} className={`${
+        <img src={Seeder} width={168} alt="Seeder Logo" onLoad={() => setLoaded(true)} className={`${
           loaded ? "block" : "hidden"
         }`}/>
       </div>
@@ -82,7 +82,7 @@ const Register = () => {
 
       {/* Terms and Conditions */}
       <p className="text-gray-500 text-center text-xs">
-        By continuing, you agree to the Jobster{' '}
+        By continuing, you agree to the Seeder{' '}
         <Link className="intext-link">User Agreement</Link>,{' '}
         <Link className="intext-link">Privacy Policy</Link>, and{' '}
         <Link className="intext-link">Cookie Policy</Link>.

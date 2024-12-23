@@ -33,7 +33,7 @@ const Navbar = () => {
       <nav className="sticky top-0 w-full flex justify-between items-center py-3 px-6 shadow-md bg-white z-50">
       {/* Logo */}
       <div>
-        <img src={Seeder} width={128} alt="Jobster Light Logo" />
+        <img src={Seeder} width={128} alt="Seeder Light Logo" />
       </div>
 
       {/* Middle Nav Elements */}

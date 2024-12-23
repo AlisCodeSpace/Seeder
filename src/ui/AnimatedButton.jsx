@@ -27,7 +27,10 @@ const AnimatedSubscribeButton = ({
             initial={{ y: -50 }}
             animate={{ y: 0 }}
           >
-            {changeText}
+            <span className="group inline-flex items-center">
+              <CheckIcon className="mr-2 size-4" />
+              {changeText}
+            </span>
           </motion.span>
         </motion.button>
       ) : (
@@ -46,7 +49,11 @@ const AnimatedSubscribeButton = ({
             animate={{ x: 0}}
             exit={{ x: 50, transition: { duration: 0.1 } }}
           >
-            {initialText}
+            <span className="group inline-flex items-center">
+              {initialText}
+              <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </span>
+            
           </motion.span>
         </motion.button>
       )}
@@ -60,18 +67,8 @@ export const AnimatedButton = () => {
       buttonColor="bg-primary"
       buttonTextColor="#ffffff"
       subscribeStatus={false}
-      initialText={
-        <span className="group inline-flex items-center">
-          Follow{" "}
-          <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </span>
-      }
-      changeText={
-        <span className="group inline-flex items-center">
-          <CheckIcon className="mr-2 size-4" />
-          Followed{" "}
-        </span>
-      }
-    />
+      initialText={`Follow${" "}`}
+      changeText={`Follow${" "}`}
+      />
   );
 };

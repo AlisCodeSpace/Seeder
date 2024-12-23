@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-const Job = ({ logo, path, companyName, position, jobType, city, country, workStyle, skills, datePosted, salary}) => {
+const Job = React.memo(({ logo, path, companyName, position, jobType, city, country, workStyle, skills, datePosted, salary}) => {
 
   const skillset = skills.map((skill, index) => (
     <span key={index} className='rounded-sm bg-secondary text-gray-800 text-sm font-medium px-3'>{skill}</span>
@@ -43,6 +43,6 @@ const Job = ({ logo, path, companyName, position, jobType, city, country, workSt
       </div>
     </Link>
   )
-}
+})
 
 export default Job

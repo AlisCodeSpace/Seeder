@@ -1,9 +1,9 @@
 import React from 'react'
+
 import Job from '../components/jobs/Job'
-
-
-// import Filters from '../components/jobs/filters'
 import Header from '../components/jobs/Header'
+// import Filters from '../components/jobs/filters'
+
 import jobs from '../data/jobs'
 
 
