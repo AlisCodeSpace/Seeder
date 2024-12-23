@@ -9,7 +9,7 @@ const Job = React.memo(({ logo, path, companyName, position, jobType, city, coun
   ))
 
   return (
-    <Link to={`/jobs/${path}`}className='relative bg-white rounded-md w-full z-49'>
+    <Link to={`/jobs/${path}`}className='relative bg-white rounded-md w-full z-49 shadow'>
       <div className='flex flex-col gap-3 p-4'>
         <div className='flex justify-between'>
           <div className='flex gap-2 items-center '>

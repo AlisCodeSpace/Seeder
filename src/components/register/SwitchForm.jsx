@@ -1,6 +1,6 @@
 const SwitchForm = ({ switchForm, setSwitchForm}) => {
   return (
-    <div className='flex justify-between bg-slate-200 w-full p-2 rounded-sm'>
+    <div className='flex justify-between bg-gray-200 w-full p-2 rounded-sm'>
         <div className='relative w-full'>
             <div className={`absolute w-1/2 rounded-sm bg-primary h-[32px] z-0 transition-transform duration-300 ease-in-out ${switchForm === 'company' ? 'translate-x-full' : 'translate-x-0'}`}></div>
 

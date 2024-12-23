@@ -10,6 +10,7 @@ const Companies = () => {
       key={company.id}
       logo={company.logo}
       name={company.name}
+      industry={company.industry}
       founded={company.founded}
       employees={company.employees}
       headquarters={company.headquarters}

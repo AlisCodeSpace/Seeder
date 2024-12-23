@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
+import { ArrowRight01Icon, Tick01Icon } from "../assets/icons/Icons";
 
 const AnimatedSubscribeButton = ({
   buttonColor,
@@ -28,7 +29,7 @@ const AnimatedSubscribeButton = ({
             animate={{ y: 0 }}
           >
             <span className="group inline-flex items-center">
-              <CheckIcon className="mr-2 size-4" />
+              <Tick01Icon className="text-primary mr-1"/>
               {changeText}
             </span>
           </motion.span>
@@ -51,7 +52,7 @@ const AnimatedSubscribeButton = ({
           >
             <span className="group inline-flex items-center">
               {initialText}
-              <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight01Icon />
             </span>
             
           </motion.span>
@@ -68,7 +69,7 @@ export const AnimatedButton = () => {
       buttonTextColor="#ffffff"
       subscribeStatus={false}
       initialText={`Follow${" "}`}
-      changeText={`Follow${" "}`}
+      changeText={`Followed${" "}`}
       />
   );
 };

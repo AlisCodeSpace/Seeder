@@ -31,7 +31,7 @@ const LoginForm = () => {
           {/* Submit Button */}
           <Button type='submit' text='Login' className='w-full'/>
 
-          <p className='text-gray-500 text-center text-xs'>By continuing, you agree to the Seeder <Link className='intext-link'>User Agreement</Link>, <Link className='intext-link'>Privacy Policy</Link>, and <Link className='intext-link'>Cookie Policy</Link>.</p>
+          <p className='text-gray-600 text-center text-xs'>By continuing, you agree to the Seeder <Link className='intext-link'>User Agreement</Link>, <Link className='intext-link'>Privacy Policy</Link>, and <Link className='intext-link'>Cookie Policy</Link>.</p>
           
         </form>  
     </div>
