@@ -65,6 +65,8 @@ const RegisterForm = ({ formData, placeholders, formErrors, handleInputChange, s
             value={field.value}
             handleChange={(e) => handleInputChange(field.name, e.target.value)}
             error={field.error}
+            name={field.name}
+            id={field.name}
           />
           {field.name === 'password' && (
             <button

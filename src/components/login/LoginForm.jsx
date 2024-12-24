@@ -15,11 +15,11 @@ const LoginForm = () => {
         <h1 className='text-3xl font-medium text-gray-800'><span className='text-primary '>Welcome</span> back!</h1>
         <form className='flex flex-col items-center justify-center gap-5 w-full'>
           {/* Username input */}
-          <Input type='text' placeholder='Username'/>
+          <Input type='text' placeholder='Username' id='username' name='username'/>
 
           {/* Password */}
           <div className='relative w-full'>
-              <Input type={`${showPassword ? 'text' : 'password'}`} placeholder='Password'/>
+              <Input type={`${showPassword ? 'text' : 'password'}`} placeholder='Password' id='password' name='password' />
               <button type='button' onClick={() => setShowPassword(prevState => !prevState)} className='absolute top-3 right-5 text-primary'>{showPassword ? <ViewIcon />  : <ViewOffSlashIcon />}</button>
           </div>
 
