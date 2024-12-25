@@ -9,13 +9,18 @@ import { ViewIcon, ViewOffSlashIcon } from '../../assets/icons/Icons'
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false)
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     /* Login Form */
     <div className='flex flex-col items-center gap-10 w-full'>
         <h1 className='text-3xl font-medium text-gray-800'><span className='text-primary '>Welcome</span> back!</h1>
-        <form className='flex flex-col items-center justify-center gap-5 w-full'>
+        <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center gap-5 w-full'>
           {/* Username input */}
           <Input type='text' placeholder='Username' id='username' name='username'/>
+         
 
           {/* Password */}
           <div className='relative w-full'>
