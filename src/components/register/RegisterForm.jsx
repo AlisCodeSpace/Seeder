@@ -3,9 +3,10 @@ import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import { ViewIcon, ViewOffSlashIcon } from '../../assets/icons/Icons'
 import { PasswordValidation, EmailValidation, NameValidation } from '../../utils/Validations';
+import useToggle from '../../hooks/useToggle';
 
 const RegisterForm = ({ formData, placeholders, formErrors, handleInputChange, setErrors }) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, toggleShowPassword] = useToggle(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,7 +72,7 @@ const RegisterForm = ({ formData, placeholders, formErrors, handleInputChange, s
           {field.name === 'password' && (
             <button
               type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
+              onClick={toggleShowPassword}
               className="absolute top-3 right-5 text-primary"
             >
               {showPassword ? <ViewIcon /> : <ViewOffSlashIcon />}

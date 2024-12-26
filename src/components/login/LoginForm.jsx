@@ -8,10 +8,11 @@ import { ViewIcon, ViewOffSlashIcon } from '../../assets/icons/Icons'
 import { HandleLogin } from '../../utils/LoginHandler'
 import { useDispatch } from 'react-redux'
 import { useApiRequestMutation } from '../../reducers/auth/authApiSlice'
+import useToggle from '../../hooks/useToggle'
 
 
 const LoginForm = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, toggleShowPassword] = useToggle(false)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,7 +55,7 @@ const LoginForm = () => {
                 error={error} 
                 handleChange={(e) => setPassword(e.target.value)}
               />
-              <button type='button' onClick={() => setShowPassword(prevState => !prevState)} className='absolute top-3 right-5 text-primary'>{showPassword ? <ViewIcon />  : <ViewOffSlashIcon />}</button>
+              <button type='button' onClick={toggleShowPassword} className='absolute top-3 right-5 text-primary'>{showPassword ? <ViewIcon />  : <ViewOffSlashIcon />}</button>
           </div>
 
           {/* Forgot Password */}

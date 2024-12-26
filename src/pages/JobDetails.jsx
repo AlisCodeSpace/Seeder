@@ -2,30 +2,28 @@ import React, { useState } from 'react'
 
 import { Link, useParams } from 'react-router-dom';
 
-
 import JobDescription from '../components/jobs/jobdetails/JobDescription';
 import CompanyInformation from '../components/jobs/jobdetails/CompanyInformation';
+import joblist from '../data/joblist'
+
+import useToggle from '../hooks/useToggle';
 
 import { motion } from 'framer-motion';
-import { Bookmark02Icon } from '../assets/icons/Icons'
+import { AnimatedButton } from '../ui/AnimatedButton';
 
+import { Bookmark02Icon } from '../assets/icons/Icons'
 import { LinkBackwardIcon } from '../assets/icons/Icons';
 
-import joblist from '../data/joblist'
-import { AnimatedButton } from '../ui/AnimatedButton';
-import { useGlobalContext } from '../contexts/GlobalContexts';
 
+const tabs = ["Description", "Company"];
 
 const JobDetails = () => {
     const { id } = useParams()
     const job = joblist.find((job) => job.path === id)
     if (!job) return <p>Job not found!</p>
 
-    const { savedJob, toggleSaveJob } = useGlobalContext()
-
+    const [savedJob, toggleSaveJob] = useToggle()
     const [selectedTab, setSelectedTab] = useState("Description");
-
-    const tabs = ["Description", "Company"];
 
     const renderTabs = tabs.map((tab) => (
         <li
@@ -48,8 +46,6 @@ const JobDetails = () => {
         )}
       </li>
     ))   
-
-    
 
     let tabInfo;
 

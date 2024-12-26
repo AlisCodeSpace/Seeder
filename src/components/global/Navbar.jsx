@@ -60,7 +60,7 @@ const Navbar = () => {
     (
     <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary' : 'text-gray-600'}`}>
         <span>{React.createElement(link.icon)}</span>
-        <span className="text-sm font-medium">{link.text}</span>
+        {/* <span className="text-sm font-medium">{link.text}</span> */}
 
         {activeLink === link.path && (
           <motion.div

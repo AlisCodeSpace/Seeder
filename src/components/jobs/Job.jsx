@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { motion } from 'framer-motion';
 import { Bookmark02Icon } from '../../assets/icons/Icons'
 
-import { Link } from 'react-router-dom'
-import { useGlobalContext } from '../../contexts/GlobalContexts';
+import useToggle from '../../hooks/useToggle';
 
-const Job = React.memo(({ logo, path, companyName, position, jobType, city, country, workStyle, skills, datePosted}) => {
-  const { savedJob, toggleSaveJob } = useGlobalContext()
-
-  console.log(savedJob)
+const Job = React.memo(({ logo, path, companyName, position, jobType, city, country, workStyle, datePosted}) => {
+  const [savedJob, toggleSaveJob] = useToggle()
 
   // const skillset = skills.map((skill, index) => (
   //   <span key={index} className='rounded-sm bg-secondary text-gray-800 text-sm font-medium px-3'>{skill}</span>
