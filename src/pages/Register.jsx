@@ -81,7 +81,7 @@ const Register = () => {
       )}
 
       {/* Terms and Conditions */}
-      <p className="text-gray-500 text-center text-xs">
+      <p className="text-gray-600 text-center text-xs">
         By continuing, you agree to the Seeder{' '}
         <Link className="intext-link">User Agreement</Link>,{' '}
         <Link className="intext-link">Privacy Policy</Link>, and{' '}

@@ -8,7 +8,7 @@ const companyinfo = [
     name: "Google",
     founded: "1998",
     employees: "170,000+",
-    headquarters: "Mountain View, California, USA",
+    headquarters: "California, USA",
     industry: "Technology",
     companyType: "Enterprise",
     isHiring: true,
