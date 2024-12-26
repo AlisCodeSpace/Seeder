@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "../reducers/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 
-export const HandleLogin = async ({ username, password, setError }) => {
+export const HandleLogin = async ({ email, password, setError }) => {
   const [apiRequest] = useApiRequestMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export const HandleLogin = async ({ username, password, setError }) => {
   try {
     const response = await apiRequest({
       path: "/login",
-      body: { username, password },
+      body: { email, password },
     }).unwrap();
 
     dispatch(
@@ -24,7 +24,7 @@ export const HandleLogin = async ({ username, password, setError }) => {
 
     navigate("/jobs");
   } catch (error) {
-    setError("Invalid username or password");
+    setError("Invalid email or password");
     console.error("Failed to login:", error);
   }
 };

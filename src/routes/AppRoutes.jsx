@@ -13,7 +13,7 @@ const Companies = lazy(() => import("../pages/Companies"));
 const Applications = lazy(() => import("../pages/Applications"));
 const Profile = lazy(() => import("../pages/Profile"));
 const ForgotPassword = lazy(() => import("../pages/ForgotPassword"));
-const JobDetails = lazy(() => import("../components/jobs/JobDetails"));
+const JobDetails = lazy(() => import("../pages/JobDetails"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
 

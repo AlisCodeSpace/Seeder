@@ -11,7 +11,7 @@ import { HandleLogin } from '../../utils/LoginHandler'
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false)
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   // const [apiRequest, { isLoading }] = useApiRequestMutation();
@@ -20,8 +20,8 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    HandleLogin({ username, password, setError })
-    setUsername('')
+    HandleLogin({ email, password, setError })
+    setEmail('')
     setPassword('')
     setError('')
   }
@@ -33,12 +33,12 @@ const LoginForm = () => {
         <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center gap-5 w-full'>
           {/* Username input */}
           <Input 
-            type='text' 
-            placeholder='Username' 
-            id='username' 
-            name='username' 
+            type='email' 
+            placeholder='Email' 
+            id='email' 
+            name='emil' 
             error={error} 
-            handleChange={(e) => setUsername(e.target.value)}
+            handleChange={(e) => setEmail(e.target.value)}
           />
          
 

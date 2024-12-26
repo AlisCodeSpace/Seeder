@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 
 import { Link, useParams } from 'react-router-dom';
+
+
+import JobDescription from '../components/jobs/jobdetails/JobDescription';
+import CompanyInformation from '../components/jobs/jobdetails/CompanyInformation';
+
 import { motion } from 'framer-motion';
+import { Bookmark02Icon } from '../assets/icons/Icons'
 
-import JobDescription from './jobdetails/JobDescription';
-import CompanyInformation from './jobdetails/CompanyInformation';
+import { LinkBackwardIcon } from '../assets/icons/Icons';
 
-import { Bookmark02Icon } from '../../assets/icons/Icons'
-
-import { LinkBackwardIcon } from '../../assets/icons/Icons';
-
-import joblist from '../../data/joblist'
-import { AnimatedButton } from '../../ui/AnimatedButton';
+import joblist from '../data/joblist'
+import { AnimatedButton } from '../ui/AnimatedButton';
+import { useGlobalContext } from '../contexts/GlobalContexts';
 
 
 const JobDetails = () => {
@@ -19,11 +21,7 @@ const JobDetails = () => {
     const job = joblist.find((job) => job.path === id)
     if (!job) return <p>Job not found!</p>
 
-    const [savedJob, setSavedJob] = useState(false)
-    
-    const handleSaveJob = () => {
-        setSavedJob(prevState => !prevState)
-    }
+    const { savedJob, toggleSaveJob } = useGlobalContext()
 
     const [selectedTab, setSelectedTab] = useState("Description");
 
@@ -65,7 +63,7 @@ const JobDetails = () => {
         <div className='flex flex-col items-center h-auto w-full my-6'>
             <div className='flex justify-between items-center w-full px-6'>
                 <Link to='/jobs'><LinkBackwardIcon className='text-gray-700'/></Link>
-                <motion.button whileTap={{scale: 1.2}} className='z-50' onClick={handleSaveJob}>
+                <motion.button whileTap={{scale: 1.2}} className='z-50' onClick={toggleSaveJob}>
                     <Bookmark02Icon fill={`${savedJob ? '#357960' : 'transparent'}`} className={`${savedJob ? ' text-primary' : 'text-gray-700'}`}/>
                 </motion.button>
             </div>
