@@ -6,6 +6,8 @@ import Input from '../../ui/Input'
 
 import { ViewIcon, ViewOffSlashIcon } from '../../assets/icons/Icons'
 import { HandleLogin } from '../../utils/LoginHandler'
+import { useDispatch } from 'react-redux'
+import { useApiRequestMutation } from '../../reducers/auth/authApiSlice'
 
 
 const LoginForm = () => {
@@ -14,13 +16,14 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  // const [apiRequest, { isLoading }] = useApiRequestMutation();
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  
+  const [apiRequest] = useApiRequestMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    HandleLogin({ email, password, setError })
+    HandleLogin({ email, password, setError, apiRequest, dispatch, navigate })
     setEmail('')
     setPassword('')
     setError('')
@@ -36,7 +39,7 @@ const LoginForm = () => {
             type='email' 
             placeholder='Email' 
             id='email' 
-            name='emil' 
+            name='email' 
             error={error} 
             handleChange={(e) => setEmail(e.target.value)}
           />

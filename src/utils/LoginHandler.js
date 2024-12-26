@@ -1,13 +1,13 @@
-import { useApiRequestMutation } from "../reducers/auth/authApiSlice";
-import { useDispatch } from "react-redux";
 import { setCredentials } from "../reducers/auth/authSlice";
-import { useNavigate } from "react-router-dom";
 
-export const HandleLogin = async ({ email, password, setError }) => {
-  const [apiRequest] = useApiRequestMutation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
+export const HandleLogin = async ({
+  email,
+  password,
+  setError,
+  apiRequest,
+  dispatch,
+  navigate,
+}) => {
   try {
     const response = await apiRequest({
       path: "/login",

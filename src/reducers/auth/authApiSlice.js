@@ -2,7 +2,7 @@ import { apiSlice } from "../../app/api/apiSlice";
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    apirequest: builder.mutation({
+    apiRequest: builder.mutation({
       query: ({ path, body }) => ({
         url: path,
         method: "POST",
