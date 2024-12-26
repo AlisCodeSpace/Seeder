@@ -13,7 +13,7 @@ const companyinfo = [
     companyType: "Enterprise",
     isHiring: true,
     openPositions: 20,
-    jobCategories: ["Engineering", "Marketing", "Sales", "AI Research"],
+    jobCategories: ["Engineering", "Marketing", "AI Research"],
     averageSalary: "$100,000 - $150,000",
     rating: 4.7,
     culture: ["Innovative", "Inclusive", "Flexible Work Environment"],
