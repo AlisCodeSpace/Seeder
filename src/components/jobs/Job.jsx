@@ -16,18 +16,17 @@ const Job = React.memo(({ logo, path, companyName, position, jobType, city, coun
   return (
     <div className='relative bg-white rounded-md w-full z-49 shadow'>
       <div className='flex flex-col gap-3 p-4'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-center'>
           <Link to={`/jobs/${path}`} className='flex gap-2 items-center '>
             <img src={logo} width={42} alt={logo} />
             <div className='flex flex-col'>
-              <h1 className='text-gray-800 font-semibold text-lg'>{position}</h1>
-              <p className='text-gray-600'>{companyName} - {city}, {country}</p>
-            </div> 
+              <h1 className='text-gray-800 font-medium text-lg'>{companyName}</h1>
+            </div>
           </Link>
 
           <div>
             <motion.button whileTap={{scale: 1.2}} className='z-50' onClick={toggleSaveJob}>
-                <Bookmark02Icon fill={`${savedJob ? '#357960' : 'transparent'}`} className={`${savedJob ? ' text-primary' : 'text-gray-700'}`}/>
+              <Bookmark02Icon fill={`${savedJob ? '#357960' : 'transparent'}`} className={`${savedJob ? ' text-primary' : 'text-gray-700'}`}/>
             </motion.button>
           </div>
         </div>
@@ -38,10 +37,15 @@ const Job = React.memo(({ logo, path, companyName, position, jobType, city, coun
             </div>
           </div> */}
 
+          <div className='flex flex-col mt-1'>
+            <h1 className='text-gray-800 font-semibold text-lg'>{position}</h1>
+            <p className='text-gray-600'>{city}, {country}</p>
+          </div> 
+
           <div className='flex items-center justify-between mt-2'>
             <div className='flex items-center gap-2'>
-              <span className='text-gray-800 bg-gray-100 rounded-md px-2'>{workStyle}</span>
-              <span className='text-gray-800 bg-gray-100 rounded-md px-2'>{jobType}</span>
+              <span className='text-gray-800 bg-gray-200 rounded-md px-3 py-1'>{jobType}</span>            
+              <span className='text-gray-800 bg-gray-200 rounded-md px-3 py-1'>{workStyle}</span>
             </div>
 
             <span className='text-xs text-gray-600 mr-2'>{datePosted} ago</span>

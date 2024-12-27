@@ -1,28 +1,18 @@
 import React, { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
-import { Link, useParams } from 'react-router-dom';
+import companies from '../data/companies'
 
-import JobDescription from '../components/jobdetails/JobDescription';
-import CompanyInformation from '../components/jobdetails/CompanyInformation';
-import joblist from '../data/joblist'
-
-import useToggle from '../hooks/useToggle';
-
+import { LinkBackwardIcon } from '../assets/icons/Icons'
+import { AnimatedButton } from '../ui/AnimatedButton'
 import { motion } from 'framer-motion';
-import { AnimatedButton } from '../ui/AnimatedButton';
 
-import { Bookmark02Icon } from '../assets/icons/Icons'
-import { LinkBackwardIcon } from '../assets/icons/Icons';
+const tabs = ["About", "Jobs"];
 
-
-const tabs = ["Description", "Company"];
-
-const JobDetails = () => {
+const Company = () => {
     const { id } = useParams()
-    const job = joblist.find((job) => job.path === id)
-    if (!job) return <p>Job not found!</p>
-
-    const [savedJob, toggleSaveJob] = useToggle()
+    const companyDetails = companies.find((comp) => comp.path === id)
+    
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
     const renderTabs = tabs.map((tab) => (
@@ -45,7 +35,7 @@ const JobDetails = () => {
           />
         )}
       </li>
-    ))   
+    ))  
 
     let tabInfo;
 
@@ -58,17 +48,16 @@ const JobDetails = () => {
     return (
         <div className='flex flex-col items-center h-auto w-full my-6'>
             <div className='flex justify-between items-center w-full px-6'>
-                <Link to='/jobs'><LinkBackwardIcon className='text-gray-700'/></Link>
-                <motion.button whileTap={{scale: 1.2}} className='z-50' onClick={toggleSaveJob}>
-                    <Bookmark02Icon fill={`${savedJob ? '#357960' : 'transparent'}`} className={`${savedJob ? ' text-primary' : 'text-gray-700'}`}/>
-                </motion.button>
+                <Link to='/companies'><LinkBackwardIcon className='text-gray-700'/></Link>
             </div>
 
             <div className='flex flex-col items-center mt-6 gap-1'>
-                <img src={job.logo} width={64} alt={`${job.companyName} Logo`} />
-                <h1 className='text-2xl text-gray-800 font-medium'>{job.position}</h1>
-                <p className='text-gray-600 text-center'>{job.companyName} - {job.city}, {job.country}</p>
+                <img src={companyDetails.logo} width={64} alt={`${companyDetails.companyName} Logo`} />
                 <div className='mt-2'>
+                    <h1 className='text-gray-900 font-medium text-xl text-center'>{companyDetails.name}</h1>
+                    <span className='text-gray-600'>{companyDetails.headquarters}</span>
+                </div>
+                <div className='flex gap-2 mt-2'>
                     <AnimatedButton />
                 </div>
             </div>
@@ -79,12 +68,9 @@ const JobDetails = () => {
                 </ul>
                 <hr className='bg-gray-400 w-full'/>
             </div>
-
-            <div className='self-start mt-4 w-full'>
-                {tabInfo}
-            </div>    
+   
         </div>
     )
 }
 
-export default JobDetails
+export default Company

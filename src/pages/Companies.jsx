@@ -1,27 +1,23 @@
 import React from 'react'
 import SearchCompanies from '../components/companies/SearchCompanies'
-import companyinfo from '../data/companyinfo'
-import Company from '../components/companies/Company'
+import companies from '../data/companies'
+import CompanyCard from '../components/companies/CompanyCard'
 
 
 const Companies = () => {
-  const renderComapnies = companyinfo.map((company) => (
-    <Company
+  const renderComapnies = companies.map((company) => (
+    <CompanyCard
       key={company.id}
       logo={company.logo}
       name={company.name}
-      industry={company.industry}
-      founded={company.founded}
-      employees={company.employees}
-      headquarters={company.headquarters}
-      rating={company.rating}
+      path={company.path}
     />
   ))
   return (
-    <div className='my-6 px-4'>
+    <div className='my-6 px-2'>
       <SearchCompanies />
 
-      <div className='flex flex-col gap-4 mt-8'>
+      <div className='flex flex-wrap items-center justify-center gap-3 mt-8'>
         {renderComapnies}
       </div>
     </div>

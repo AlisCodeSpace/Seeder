@@ -16,7 +16,7 @@ const AnimatedSubscribeButton = ({
     <AnimatePresence mode="wait">
       {isSubscribed ? (
         <motion.button
-          className="relative flex h-10 w-[140px] items-center justify-center overflow-hidden rounded-md bg-white outline outline-2 outline-primary"
+          className="relative flex h-10 w-[140px] items-center justify-center overflow-hidden rounded-md bg-lightbrown"
           onClick={() => setIsSubscribed(false)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -24,19 +24,19 @@ const AnimatedSubscribeButton = ({
         >
           <motion.span
             key="action"
-            className="relative flex h-full w-full items-center justify-center font-semibold text-primary"
+            className="relative flex h-full w-full items-center justify-center font-semibold text-brown"
             initial={{ y: -50 }}
             animate={{ y: 0 }}
           >
             <span className="group inline-flex items-center">
-              <Tick01Icon className="text-primary mr-1"/>
+              <Tick01Icon className="text-brown mr-1"/>
               {changeText}
             </span>
           </motion.span>
         </motion.button>
       ) : (
         <motion.button
-          className="relative flex h-10 w-[140px] cursor-pointer items-center justify-center rounded-md border-none bg-primary"
+          className="relative flex h-10 w-[140px] cursor-pointer items-center justify-center rounded-md border-none bg-brown"
           style={{ backgroundColor: buttonColor, color: buttonTextColor }}
           onClick={() => setIsSubscribed(true)}
           initial={{ opacity: 0 }}
@@ -65,7 +65,7 @@ const AnimatedSubscribeButton = ({
 export const AnimatedButton = () => {
   return (
     <AnimatedSubscribeButton
-      buttonColor="bg-primary"
+      buttonColor=""
       buttonTextColor="#ffffff"
       subscribeStatus={false}
       initialText={`Follow${" "}`}

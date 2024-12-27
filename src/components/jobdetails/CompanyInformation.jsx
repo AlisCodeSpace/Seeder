@@ -1,7 +1,7 @@
 import React from 'react'
-import companyinfo from '../../../data/companyinfo'
+import companyinfo from '../../data/companies'
 
-import { ArrowRight02Icon, Linkedin01Icon, LinkSquare01Icon, SquareArrowRightDoubleIcon } from "../../../assets/icons/Icons";
+import { ArrowRight02Icon, Linkedin01Icon, LinkSquare01Icon, SquareArrowRightDoubleIcon } from "../../assets/icons/Icons";
 import { Link } from 'react-router-dom';
 
 
@@ -25,18 +25,18 @@ const CompanyInformation = () => {
       {/* Company Socials*/}      
       <div className='flex flex-col gap-1'>
         {/* Work style and job type */}
-        <div className='flex gap-2 items-center'>
+        <div className='flex gap-1 items-center'>
             <LinkSquare01Icon className='text-gray-800'/>
-            <div className='flex items-center gap-2'>
-                <Link to={company.website} className='text-primary  px-2 py-1 rounded-md'>{company.website}</Link>
+            <div className='flex items-center gap-1'>
+                <Link to={company.website} className='text-primary  px-2 py-1 rounded-md'>Visit Website</Link>
             </div>
         </div>
           
         {/* Salary */}
-        <div className='flex gap-2 items-center'>
+        <div className='flex gap-1 items-center'>
             <Linkedin01Icon />
-            <div className='flex items-center gap-2'>
-                <Link to={company.socialLinks.linkedin} className='text-primary px-2 py-1 rounded-md'>{company.socialLinks.linkedin}</Link>
+            <div className='flex items-center gap-1'>
+              <Link to={company.socialLinks.linkedin} className='text-[#0077b5] px-2 py-1 rounded-md'>LinkedIn</Link>
             </div>
         </div>
       </div>

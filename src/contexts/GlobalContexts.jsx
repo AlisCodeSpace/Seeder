@@ -5,7 +5,7 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
 
 
-  return <GlobalContext.Provider>{children}</GlobalContext.Provider>;
+  return <GlobalContext.Provider value={{}}>{children}</GlobalContext.Provider>;
 };
 
 export const useGlobalContext = () => {

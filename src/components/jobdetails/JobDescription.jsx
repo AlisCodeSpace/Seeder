@@ -1,5 +1,5 @@
 import React from 'react'
-import { Briefcase06Icon, DollarCircleIcon, TimeHalfPassIcon } from '../../../assets/icons/Icons'
+import { Briefcase06Icon, DollarCircleIcon, TimeHalfPassIcon } from '../../assets/icons/Icons'
 import { motion } from 'framer-motion';
 
 
@@ -11,7 +11,7 @@ const JobDescription = ({ jobDetails }) => {
   ))
   
   const renderSkills = jobDetails.skills.map((skill, index) => (
-    <li key={index} className='text-gray-800 bg-gray-200 rounded-md py-1 px-2'>
+    <li key={index} className='text-gray-700 rounded-md list-disc'>
         {skill}
     </li>
   ))
@@ -67,9 +67,9 @@ const JobDescription = ({ jobDetails }) => {
         </div>
 
         {/* Required Skills */}
-        <div className='w-full mb-12'>
+        <div className='mb-12'>
             <h1 className='text-2xl text-gray-800'>Required Skills</h1>
-            <ul className='mt-4 flex flex-wrap gap-3'>
+            <ul className='mt-2 pl-4'>
                 {renderSkills}
             </ul>
         </div>

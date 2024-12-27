@@ -1,11 +1,12 @@
 import GoogleLogo from "../assets/images/google.png";
 import GithubLogo from "../assets/images/github.png";
 
-const companyinfo = [
+const companies = [
   {
     id: 1,
     logo: GoogleLogo,
     name: "Google",
+    path: "company1",
     founded: "1998",
     employees: "170,000+",
     headquarters: "California, USA",
@@ -56,6 +57,7 @@ const companyinfo = [
     id: 2,
     logo: GoogleLogo,
     name: "Microsoft",
+    path: "company2",
     founded: "1975",
     employees: "220,000+",
     headquarters: "Redmond, Washington, USA",
@@ -99,6 +101,7 @@ const companyinfo = [
   {
     id: 3,
     logo: GithubLogo,
+    path: "company3",
     name: "Amazon",
     founded: "1994",
     employees: "1,540,000+",
@@ -137,6 +140,7 @@ const companyinfo = [
   {
     id: 4,
     logo: GoogleLogo,
+    path: "company4",
     name: "Apple",
     founded: "1976",
     employees: "154,000+",
@@ -175,6 +179,7 @@ const companyinfo = [
   {
     id: 5,
     logo: GoogleLogo,
+    path: "company5",
     name: "Tesla",
     founded: "2003",
     employees: "127,000+",
@@ -215,4 +220,4 @@ const companyinfo = [
   },
 ];
 
-export default companyinfo;
+export default companies;

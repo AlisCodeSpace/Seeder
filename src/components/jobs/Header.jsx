@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 
 import Profile_Img from '../../assets/images/profile_img.png'
-import Plant from '../../assets/images/plant.png'
 import Search from './header/Search'
 import { ImageWithTextSkeleton } from '../../skeletons/ImageWithText'
+import Background from '../../assets/images/Background.png'
 
 const Header = () => {
   const [loaded, setLoaded] = useState(false) 
   return (
-    <div className='relative bg-primary rounded-b-3xl w-full h-[200px] pl-4 pt-4 flex flex-col gap-8'>
-        <img src={Plant} width={156} alt="Plant" className='absolute right-0 bottom-5'/>
+    <div  style={{
+        backgroundImage: `url(${Background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }} className='relative rounded-b-3xl px-4 w-full pt-4 flex flex-col gap-8 h-[240px]'>
         {!loaded && <ImageWithTextSkeleton />}
         <div className={`gap-2 items-center ${loaded ? 'flex' : 'hidden'}`}>
             <div className='max-w-[64px] overflow-hidden rounded-full'>

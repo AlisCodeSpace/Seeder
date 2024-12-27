@@ -5,6 +5,7 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import Home from "../pages/Home";
 import Jobs from "../pages/Jobs";
 import LoadingScreen from '../skeletons/LoadingScreen';
+import Company from "../pages/Company";
 
 // Lazy load components
 const Login = lazy(() => import("../pages/Login"));
@@ -35,8 +36,10 @@ const AppRoutes = () => {
             <Route path="applications" element={<Applications />} />
             <Route path="profile" element={<Profile />} />
           </Route>
-
+    
+          {/* Other Routes */}  
           <Route path="jobs/:id" element={<JobDetails />} />
+          <Route path="companies/:id" element={<Company />} />
 
           {/*Other Routes */}
           <Route path="/login" element={<Login />} />
