@@ -54,13 +54,13 @@ const JobDescription = ({ jobDetails }) => {
 
         {/* About the job */}
         <div>
-            <h1 className='text-2xl text-gray-800'>About the job</h1>
+            <h3 className='h2'>About the job</h3>
             <p className='text-gray-700 mt-2'>{jobDetails.about}</p>
         </div>
         
         {/* Applicant Responsibilities */}
         <div>
-            <h1 className='text-2xl text-gray-800'>Job Responsibilities</h1>
+            <h2 className='h2'>Job Responsibilities</h2>
             <ul className='mt-2 pl-4'>
                 {renderResponsibilities}
             </ul>
@@ -68,7 +68,7 @@ const JobDescription = ({ jobDetails }) => {
 
         {/* Required Skills */}
         <div className='mb-12'>
-            <h1 className='text-2xl text-gray-800'>Required Skills</h1>
+            <h2 className='h2'>Required Skills</h2>
             <ul className='mt-2 pl-4'>
                 {renderSkills}
             </ul>

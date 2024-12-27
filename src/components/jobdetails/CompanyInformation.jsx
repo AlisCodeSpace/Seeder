@@ -42,25 +42,25 @@ const CompanyInformation = () => {
       </div>
       {/* About the company */}
       <div>
-        <h1 className='text-2xl text-gray-800'>About the company</h1>
+        <h2 className='h2'>About the company</h2>
         <p className='text-gray-700 mt-2'>{company.about}</p>
       </div>
 
       {/* About the company */}
       <div>
-        <h1 className='text-2xl text-gray-800'>Our Mission</h1>
+        <h2 className='h2'>Our Mission</h2>
         <p className='text-gray-700 mt-2'>{company.mission}</p>
       </div>
 
       {/* Application process */}
       <div>
-        <h1 className='text-2xl text-gray-800'>Application Process</h1>
+        <h2 className='h2'>Application Process</h2>
         <div className='text-gray-700 mt-2 flex flex-wrap'>{appProcess}</div>
       </div>
 
       {/* Application process */}
       <div>
-        <h1 className='text-2xl text-gray-800'>We're Hiring</h1>
+        <h2 className='h2'>We're Hiring</h2>
         <ul className='text-gray-700 mt-2 flex flex-col ml-4'>{openPositions}</ul>
       </div>
     </div>

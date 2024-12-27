@@ -66,7 +66,7 @@ const JobDetails = () => {
 
             <div className='flex flex-col items-center mt-6 gap-1'>
                 <img src={job.logo} width={64} alt={`${job.companyName} Logo`} />
-                <h1 className='text-2xl text-gray-800 font-medium'>{job.position}</h1>
+                <h2 className='h2 font-medium'>{job.position}</h2>
                 <p className='text-gray-600 text-center'>{job.companyName} - {job.city}, {job.country}</p>
                 <div className='mt-2'>
                     <AnimatedButton />

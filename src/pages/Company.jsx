@@ -6,13 +6,15 @@ import companies from '../data/companies'
 import { LinkBackwardIcon } from '../assets/icons/Icons'
 import { AnimatedButton } from '../ui/AnimatedButton'
 import { motion } from 'framer-motion';
+import CompanyJobs from '../components/company/CompanyJobs'
+import AboutCompany from '../components/company/AboutCompany'
 
 const tabs = ["About", "Jobs"];
 
 const Company = () => {
     const { id } = useParams()
     const companyDetails = companies.find((comp) => comp.path === id)
-    
+
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
     const renderTabs = tabs.map((tab) => (
@@ -39,10 +41,10 @@ const Company = () => {
 
     let tabInfo;
 
-    if (selectedTab === 'Description') {
-        tabInfo = <JobDescription jobDetails={job}/>
-    } else if (selectedTab === 'Company') {
-        tabInfo = <CompanyInformation />
+    if (selectedTab === 'About') {
+        tabInfo = <AboutCompany companyDetails={companyDetails}/>
+    } else if (selectedTab === 'Jobs') {
+        tabInfo = <CompanyJobs />
     }
 
     return (
@@ -68,6 +70,10 @@ const Company = () => {
                 </ul>
                 <hr className='bg-gray-400 w-full'/>
             </div>
+
+            <div className='self-start mt-4 w-full'>
+                {tabInfo}
+            </div>  
    
         </div>
     )
