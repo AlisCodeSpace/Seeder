@@ -15,6 +15,7 @@ const Applications = lazy(() => import("../pages/Applications"));
 const Profile = lazy(() => import("../pages/Profile"));
 const ForgotPassword = lazy(() => import("../pages/ForgotPassword"));
 const JobDetails = lazy(() => import("../pages/JobDetails"));
+const Notifications = lazy(() => import("../pages/Notifications"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
 
@@ -35,6 +36,7 @@ const AppRoutes = () => {
             <Route path="companies" element={<Companies />} />
             <Route path="applications" element={<Applications />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="notifications" element={<Notifications />} />
           </Route>
     
           {/* Other Routes */}  
