@@ -1,5 +1,5 @@
 import {
-  UserEdit01Icon,
+  PencilEdit01Icon,
   Briefcase01Icon,
   DiplomaIcon,
   ConstellationIcon,
@@ -25,7 +25,7 @@ const navlinks = [
   },
   {
     title: "Account Info",
-    icon: UserEdit01Icon,
+    icon: PencilEdit01Icon,
   },
 ];
 

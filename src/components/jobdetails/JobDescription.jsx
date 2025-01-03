@@ -1,6 +1,7 @@
 import React from 'react'
 import { Briefcase06Icon, DollarCircleIcon, TimeHalfPassIcon } from '../../assets/icons/Icons'
 import { motion } from 'framer-motion';
+import Button from '../../ui/Button';
 
 
 const JobDescription = ({ jobDetails }) => {
@@ -75,7 +76,7 @@ const JobDescription = ({ jobDetails }) => {
         </div>
 
         <div className='w-full fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4'>
-            <motion.button whileTap={{ scale: 0.9 }} className='bg-primary px-6 rounded-md py-2 text-white font-medium w-full'>Apply</motion.button>
+            <Button type='button' className='bg-primary text-white w-full'>Apply</Button>
         </div>
     </div>
   )

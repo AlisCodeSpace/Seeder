@@ -81,7 +81,7 @@ const RegisterForm = ({ formData, placeholders, formErrors, handleInputChange, s
           {field.error && <p className="text-red-700 text-xs mt-2">{field.error}</p>}
         </div>
       ))}
-      <Button type="submit" text="Register" className="button w-full" />
+      <Button type="submit" className="w-full bg-primary text-white">Register</Button>
     </form>
   );
 };

@@ -45,7 +45,7 @@ const ForgotPassword = () => {
             </div>
 
             <div className='flex items-center justify-between w-full'>
-                <Button text='Send Code'/>
+                <Button type='submit' className='bg-primary text-white'>Send Code</Button>
                 <Link to='/login' className='link text-gray-800'>Back to login</Link>
             </div>
         </form>

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 
-import { AddCircleIcon, MinusSignCircleIcon, UserEdit01Icon } from '../../assets/icons/Icons'
+import { AddCircleIcon, Edit01Icon, MinusSignCircleIcon, UserEdit01Icon } from '../../assets/icons/Icons'
 import { motion } from 'framer-motion';
 
 import { useGlobalContext } from '../../contexts/GlobalContexts';
 import useToggle from '../../hooks/useToggle'
-import { use } from 'react';
 
 
-const ProfileInputs = ({ icon, title }) => {
+const ProfileInputs = ({ icon, title, toggleModal }) => {
     const { editProfile } = useGlobalContext()
     const [collapsed, toggleCollapse] = useToggle()
+
     const [aboutMe, setAboutMe] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eaque obcaecati, quis quisquam ad, autem, modi sunt molestias eveniet magnam voluptates natus nihil praesentium quia unde maiores. Voluptate, natus nisi.');
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const ProfileInputs = ({ icon, title }) => {
     }, [editProfile])
     
   return (
-    <div className='w-full bg-white rounded-md px-6 py-3 overflow-hidden'>
+    <div className='w-full bg-white rounded-md px-4 py-3 overflow-hidden'>
       <div className='flex justify-between items-center'>
         <div className='flex gap-3'>
             <span>{React.createElement(icon)}</span>
@@ -44,7 +44,7 @@ const ProfileInputs = ({ icon, title }) => {
                 )}
             </motion.div>
          </button>
-        </div>
+        </div> 
       </div>
       <motion.div 
         className='overflow-hidden'
@@ -54,14 +54,12 @@ const ProfileInputs = ({ icon, title }) => {
       >
         <div className='mt-4'>
             <hr className='mb-3'/>
-            <textarea
-              className='w-full text-gray-800 resize-none focus:outline-none bg-transparent'
-              value={aboutMe}
-              onChange={(e) => setAboutMe(e.target.value)}
-              disabled={!editProfile}
-              rows={6}
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            />
+            <div className='w-full flex gap-3 items-start'>
+              <p className='text-gray-800 resize-none focus:outline-none bg-transparent break-words hyphens-auto'>
+              {aboutMe}
+              </p>
+              <button onClick={toggleModal}><Edit01Icon /></button>
+            </div>
         </div>
       </motion.div>
     </div>

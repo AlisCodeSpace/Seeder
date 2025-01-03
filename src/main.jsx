@@ -7,13 +7,16 @@ import App from './App.jsx'
 
 import { store } from "./app/store.js";
 import { Provider } from 'react-redux'
+import {NextUIProvider} from '@nextui-org/react'
 import { GlobalProvider } from './contexts/GlobalContexts.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
         <GlobalProvider>
-          <App />
+          <NextUIProvider>
+            <App />
+          </NextUIProvider>
         </GlobalProvider>
     </Provider>
   </StrictMode>

@@ -13,6 +13,7 @@ const Companies = () => {
       path={company.path}
     />
   ))
+  
   return (
     <div className='my-6 px-2'>
       {/* <SearchCompanies /> */}
