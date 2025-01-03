@@ -12,16 +12,17 @@ import Button from '../ui/Button'
 import { EditModal } from '../ui/Modals'
 
 import { UserCheck01Icon, UserEdit01Icon } from '../assets/icons/Icons'
+import { useDisclosure } from '@nextui-org/react'
 
 const Profile = () => {
   const { editProfile, toggleEditProfile } = useGlobalContext()
-  const [openModal, toggleModal] = useToggle() 
+  const {isOpen, onOpen, onOpenChange} = useDisclosure(); 
 
   const renderProfileInputs = editinfo.map((item, index) => (
-    <ProfileInputs key={index} icon={item.icon} title={item.title} toggleModal={toggleModal}/>
+    <ProfileInputs key={index} icon={item.icon} title={item.title} onOpen={onOpen}/>
   ))
   return (
-    <div className='relative flex flex-col items-center px-4 mt-10 pb-12 w-full gap-5'>
+    <div className='relative flex flex-col items-center px-4 pt-10 pb-12 w-full gap-5'>
       <ProfileHeader />
 
       {renderProfileInputs}
@@ -33,7 +34,7 @@ const Profile = () => {
         </Button>
       </div>
       
-      <EditModal openModal={openModal} toggleModal={toggleModal}/>
+      <EditModal isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange}/>
     </div>
   )
 }

@@ -7,19 +7,16 @@ import { useGlobalContext } from '../../contexts/GlobalContexts';
 import useToggle from '../../hooks/useToggle'
 
 
-const ProfileInputs = ({ icon, title, toggleModal }) => {
+const ProfileInputs = ({ icon, title, onOpen }) => {
     const { editProfile } = useGlobalContext()
     const [collapsed, toggleCollapse] = useToggle()
 
     const [aboutMe, setAboutMe] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eaque obcaecati, quis quisquam ad, autem, modi sunt molestias eveniet magnam voluptates natus nihil praesentium quia unde maiores. Voluptate, natus nisi.');
 
     useEffect(() => {
-      if (editProfile) {
-        toggleCollapse(true)
-      } else {
-        toggleCollapse(false)
-      }
-    }, [editProfile])
+      // Explicitly set collapse state based on editProfile
+      toggleCollapse(!editProfile);
+  }, [editProfile, toggleCollapse]);
     
   return (
     <div className='w-full bg-white rounded-md px-4 py-3 overflow-hidden'>
@@ -37,7 +34,7 @@ const ProfileInputs = ({ icon, title, toggleModal }) => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="inline-block"
             >
-                {!collapsed ? (
+                {collapsed ? (
                 <AddCircleIcon className="text-brown" />
                 ) : (
                 <MinusSignCircleIcon className="text-brown" />
@@ -49,16 +46,16 @@ const ProfileInputs = ({ icon, title, toggleModal }) => {
       <motion.div 
         className='overflow-hidden'
         initial={{ height: 0, opacity: 0 }}
-        animate={{ height: collapsed ? "auto" : 0, opacity: collapsed ? 1 : 0 }}
+        animate={{ height: collapsed ? 0 : "auto", opacity: collapsed ? 0 : 1 }}
         transition={{ duration: 0.5 }}
       >
         <div className='mt-4'>
             <hr className='mb-3'/>
             <div className='w-full flex gap-3 items-start'>
-              <p className='text-gray-800 resize-none focus:outline-none bg-transparent break-words hyphens-auto'>
+              <p className='text-gray-900 resize-none focus:outline-none bg-transparent break-words hyphens-auto'>
               {aboutMe}
               </p>
-              <button onClick={toggleModal}><Edit01Icon /></button>
+              <button onClick={onOpen}><Edit01Icon /></button>
             </div>
         </div>
       </motion.div>
