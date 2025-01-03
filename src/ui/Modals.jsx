@@ -11,7 +11,7 @@ export const EditModal = ({ isOpen, onOpenChange, title, children }) => {
 
   return (
     <>
-      <Modal isOpen={isOpen} isDismissable={false} onOpenChange={onOpenChange}>
+      <Modal className="h-5/6" isOpen={isOpen} isDismissable={false} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>

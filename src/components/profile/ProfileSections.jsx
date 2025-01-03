@@ -7,16 +7,20 @@ import { useGlobalContext } from '../../contexts/GlobalContexts';
 import useToggle from '../../hooks/useToggle'
 
 
-const ProfileInputs = ({ icon, title, onOpen }) => {
+const ProfileSections = ({ icon, title, onOpen, children, setComponentTitle }) => {
     const { editProfile } = useGlobalContext()
     const [collapsed, toggleCollapse] = useToggle()
 
     const [aboutMe, setAboutMe] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eaque obcaecati, quis quisquam ad, autem, modi sunt molestias eveniet magnam voluptates natus nihil praesentium quia unde maiores. Voluptate, natus nisi.');
 
     useEffect(() => {
-      // Explicitly set collapse state based on editProfile
       toggleCollapse(!editProfile);
   }, [editProfile, toggleCollapse]);
+
+  const handleEditClick = () => {
+    onOpen();
+    setComponentTitle(title);
+  }
     
   return (
     <div className='w-full bg-white rounded-md px-4 py-3 overflow-hidden'>
@@ -52,10 +56,8 @@ const ProfileInputs = ({ icon, title, onOpen }) => {
         <div className='mt-4'>
             <hr className='mb-3'/>
             <div className='w-full flex gap-3 items-start'>
-              <p className='text-gray-900 resize-none focus:outline-none bg-transparent break-words hyphens-auto'>
-              {aboutMe}
-              </p>
-              <button onClick={onOpen}><Edit01Icon /></button>
+              {children}
+              {editProfile && <button onClick={handleEditClick}><Edit01Icon /></button>}
             </div>
         </div>
       </motion.div>
@@ -63,4 +65,4 @@ const ProfileInputs = ({ icon, title, onOpen }) => {
   )
 }
 
-export default ProfileInputs
+export default ProfileSections

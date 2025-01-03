@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import ProfileInputs from '../components/profile/ProfileInputs'
+import ProfileSections from '../components/profile/ProfileSections'
 import ProfileHeader from '../components/profile/ProfileHeader'
 
 import editinfo from '../data/editinfo'
@@ -13,14 +13,44 @@ import { EditModal } from '../ui/Modals'
 
 import { UserCheck01Icon, UserEdit01Icon } from '../assets/icons/Icons'
 import { useDisclosure } from '@nextui-org/react'
+import AboutMe from '../components/profile/sections/about/AboutMe'
+import WorkExperience from '../components/profile/sections/WorkExperience'
+import Education from '../components/profile/sections/Education'
+import EditAboutMe from '../components/profile/sections/about/EditAboutMe'
 
 const Profile = () => {
   const { editProfile, toggleEditProfile } = useGlobalContext()
-  const {isOpen, onOpen, onOpenChange} = useDisclosure(); 
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const [componentTitle, setComponentTitle] = useState('')
+  
+  const getChildProfileComponent = (title) => {
+    switch (title) {
+        case "About Me":
+            return <AboutMe />;
+        case "Work Experience":
+            return <WorkExperience />;
+        case "Education":
+            return <Education />;
+        default:
+            return null; // Fallback if no match
+    }
+  };
+
+  const getChildModalComponent = () => {
+    switch (componentTitle) {
+        case "About Me":
+            return <EditAboutMe />;
+        default:
+            return null; // Fallback if no match
+    }
+  };
 
   const renderProfileInputs = editinfo.map((item, index) => (
-    <ProfileInputs key={index} icon={item.icon} title={item.title} onOpen={onOpen}/>
+    <ProfileSections key={index} icon={item.icon} title={item.title} onOpen={onOpen} setComponentTitle={setComponentTitle}>
+      {getChildProfileComponent(item.title)}
+    </ProfileSections>
   ))
+
   return (
     <div className='relative flex flex-col items-center px-4 pt-10 pb-12 w-full gap-5'>
       <ProfileHeader />
@@ -34,7 +64,9 @@ const Profile = () => {
         </Button>
       </div>
       
-      <EditModal isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange}/>
+      <EditModal isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} title={componentTitle}>
+        {getChildModalComponent()}
+      </EditModal>
     </div>
   )
 }
