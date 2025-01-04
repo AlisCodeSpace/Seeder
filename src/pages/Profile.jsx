@@ -4,8 +4,9 @@ import ProfileSections from '../components/profile/ProfileSections'
 import ProfileHeader from '../components/profile/ProfileHeader'
 
 import editinfo from '../data/editinfo'
+import profiledata from '../data/profiledata'
+
 import { useGlobalContext } from '../contexts/GlobalContexts'
-import useToggle from '../hooks/useToggle'
 
 
 import Button from '../ui/Button'
@@ -14,21 +15,30 @@ import { EditModal } from '../ui/Modals'
 import { UserCheck01Icon, UserEdit01Icon } from '../assets/icons/Icons'
 import { useDisclosure } from '@nextui-org/react'
 import AboutMe from '../components/profile/sections/about/AboutMe'
-import WorkExperience from '../components/profile/sections/WorkExperience'
+import WorkExperience from '../components/profile/sections/work/WorkExperience'
 import Education from '../components/profile/sections/Education'
 import EditAboutMe from '../components/profile/sections/about/EditAboutMe'
+import EditWork from '../components/profile/sections/work/EditWork'
+
 
 const Profile = () => {
   const { editProfile, toggleEditProfile } = useGlobalContext()
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
   const [componentTitle, setComponentTitle] = useState('')
+  const [aboutMe, setAboutMe] = useState(profiledata.aboutMe)
+  const [aboutMeDraft, setAboutMeDraft] = useState(aboutMe)
+
+  const [workExp, setWorkExp] = useState(profiledata.workExperience)
+  const [workExpDraft, setWorkExpDraft] = useState(workExp)
+  
   
   const getChildProfileComponent = (title) => {
     switch (title) {
         case "About Me":
-            return <AboutMe />;
+            return <AboutMe aboutMe={aboutMe}/>;
         case "Work Experience":
-            return <WorkExperience />;
+            return <WorkExperience workExp={workExp}/>;
         case "Education":
             return <Education />;
         default:
@@ -39,17 +49,27 @@ const Profile = () => {
   const getChildModalComponent = () => {
     switch (componentTitle) {
         case "About Me":
-            return <EditAboutMe />;
+            return <EditAboutMe aboutMeDraft={aboutMeDraft} setAboutMeDraft={setAboutMeDraft}/>;
+        case "Work Experience":
+          return <EditWork workExpDraft={workExpDraft} setWorkExpDraft={setWorkExpDraft} />
         default:
             return null; // Fallback if no match
     }
   };
+
+  const handleSave = () => {
+    if (componentTitle === "About Me") {
+        setAboutMe(aboutMeDraft);
+    }
+  }
 
   const renderProfileInputs = editinfo.map((item, index) => (
     <ProfileSections key={index} icon={item.icon} title={item.title} onOpen={onOpen} setComponentTitle={setComponentTitle}>
       {getChildProfileComponent(item.title)}
     </ProfileSections>
   ))
+
+
 
   return (
     <div className='relative flex flex-col items-center px-4 pt-10 pb-12 w-full gap-5'>
@@ -64,7 +84,7 @@ const Profile = () => {
         </Button>
       </div>
       
-      <EditModal isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} title={componentTitle}>
+      <EditModal isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} title={componentTitle} onSave={handleSave}>
         {getChildModalComponent()}
       </EditModal>
     </div>

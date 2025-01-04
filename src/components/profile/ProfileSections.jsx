@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { AddCircleIcon, Edit01Icon, MinusSignCircleIcon, UserEdit01Icon } from '../../assets/icons/Icons'
+import { AddCircleIcon, Edit01Icon, MinusSignCircleIcon } from '../../assets/icons/Icons'
 import { motion } from 'framer-motion';
 
 import { useGlobalContext } from '../../contexts/GlobalContexts';
@@ -9,9 +9,8 @@ import useToggle from '../../hooks/useToggle'
 
 const ProfileSections = ({ icon, title, onOpen, children, setComponentTitle }) => {
     const { editProfile } = useGlobalContext()
-    const [collapsed, toggleCollapse] = useToggle()
 
-    const [aboutMe, setAboutMe] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eaque obcaecati, quis quisquam ad, autem, modi sunt molestias eveniet magnam voluptates natus nihil praesentium quia unde maiores. Voluptate, natus nisi.');
+    const [collapsed, toggleCollapse] = useToggle()
 
     useEffect(() => {
       toggleCollapse(!editProfile);
@@ -55,7 +54,7 @@ const ProfileSections = ({ icon, title, onOpen, children, setComponentTitle }) =
       >
         <div className='mt-4'>
             <hr className='mb-3'/>
-            <div className='w-full flex gap-3 items-start'>
+            <div className='w-full flex gap-3 justify-between items-start'>
               {children}
               {editProfile && <button onClick={handleEditClick}><Edit01Icon /></button>}
             </div>

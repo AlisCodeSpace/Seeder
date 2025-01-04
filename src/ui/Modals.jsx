@@ -7,7 +7,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-export const EditModal = ({ isOpen, onOpenChange, title, children }) => {
+export const EditModal = ({ isOpen, onOpenChange, onSave, title, children }) => {
 
   return (
     <>
@@ -27,7 +27,10 @@ export const EditModal = ({ isOpen, onOpenChange, title, children }) => {
                 <Button className="font-medium" color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button className="bg-primary text-white rounded-md font-medium" onPress={onClose}>
+                <Button className="bg-primary text-white rounded-md font-medium" onPress={() => {
+                  onSave();
+                  onClose();
+                }}>
                   Save
                 </Button>
               </ModalFooter>

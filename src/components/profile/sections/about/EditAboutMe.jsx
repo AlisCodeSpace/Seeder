@@ -2,14 +2,16 @@ import React from 'react'
 
 import {Textarea} from "@nextui-org/react";
 
-const EditAboutMe = () => {
+const EditAboutMe = ({ aboutMeDraft, setAboutMeDraft }) => {
   return (
     <div>
         <Textarea
-            isClearable
-            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            placeholder="Tell us about yourself"
-            variant="faded"
+          isClearable
+          className='text-primary'
+          defaultValue={aboutMeDraft}
+          onChange={(e) => setAboutMeDraft(e.target.value)}
+          placeholder="Tell us about yourself"
+          variant="faded"
         />
     </div>
   )
