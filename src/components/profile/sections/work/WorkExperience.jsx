@@ -1,23 +1,42 @@
-import React from 'react'
+import React from "react";
 
 const WorkExperience = ({ workExp }) => {
-    const renderWorkExperiences = workExp.map((work, index) => (
-        <li key={index} className='flex flex-col gap-1'>
-            <div className='flex items-center gap-2 text-gray-900'>
-                <span className='text-sm '>{work.company}</span>
-                <div className='bg-gray-800 rounded-full w-[2px] h-[2px]'/>
-                <span className='text-sm'>{work.position}</span>
-            </div>
-            <span className='text-sm text-gray-700'>{work.startDate} - {work.endDate}</span>
-        </li>
-    ))
   return (
     <div>
-        <ul className='flex flex-col gap-3 list-disc'>
-            {renderWorkExperiences}
-        </ul>
-    </div>
-  )
-}
+      <ul className="flex flex-col gap-3 list-disc">
+        {workExp.map((work, index) => {
+          const { company, position, startDate, endDate } = work;
 
-export default WorkExperience
+          // Skip rendering this work experience if all fields are empty
+          if (!company && !position && !startDate && !endDate) {
+            return null;
+          }
+
+          return (
+            <li key={index} className="flex flex-col gap-1">
+              {/* Render company and position if both are present */}
+              {(company || position) && (
+                <div className="flex items-center gap-2 text-gray-900">
+                  {company && <span className="text-sm">{company}</span>}
+                  {company && position && (
+                    <div className="bg-gray-800 rounded-full w-[2px] h-[2px]" />
+                  )}
+                  {position && <span className="text-sm">{position}</span>}
+                </div>
+              )}
+
+              {/* Render startDate and endDate if both are present */}
+              {(startDate || endDate) && (
+                <span className="text-sm text-gray-700">
+                  {startDate && startDate} - {endDate && endDate}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+export default WorkExperience;

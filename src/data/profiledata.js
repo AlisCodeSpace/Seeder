@@ -19,5 +19,34 @@ const profiledata = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eaque obcaecati, quis quisquam ad, autem, modi sunt molestias eveniet magnam voluptates natus nihil praesentium quia unde maiores. Voluptate, natus nisi.",
     },
   ],
+  education: [
+    {
+      institution: "Harvard University",
+      degree: "Bachelor of Computer Science",
+      startDate: "Sep 2014",
+      endDate: "May 2018",
+      description:
+        "Studied various computer science topics including algorithms, data structures, and software engineering. Graduated with honors.",
+    },
+    {
+      institution: "Stanford University",
+      degree: "Master of Computer Science",
+      startDate: "Sep 2018",
+      endDate: "May 2020",
+      description:
+        "Specialized in artificial intelligence and machine learning. Completed a thesis on deep learning techniques.",
+    },
+  ],
+  skills: [
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Python",
+    "Django",
+    "Java",
+    "C++",
+    "SQL",
+    "NoSQL",
+  ],
 };
 export default profiledata;

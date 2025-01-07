@@ -16,9 +16,12 @@ import { UserCheck01Icon, UserEdit01Icon } from '../assets/icons/Icons'
 import { useDisclosure } from '@nextui-org/react'
 import AboutMe from '../components/profile/sections/about/AboutMe'
 import WorkExperience from '../components/profile/sections/work/WorkExperience'
-import Education from '../components/profile/sections/Education'
+import Education from '../components/profile/sections/education/Education'
 import EditAboutMe from '../components/profile/sections/about/EditAboutMe'
 import EditWork from '../components/profile/sections/work/EditWork'
+import EditEducation from '../components/profile/sections/education/EditEducation'
+import Skills from '../components/profile/sections/skills/Skills'
+import EditSkills from '../components/profile/sections/skills/EditSkills'
 
 
 const Profile = () => {
@@ -26,11 +29,18 @@ const Profile = () => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   const [componentTitle, setComponentTitle] = useState('')
+
   const [aboutMe, setAboutMe] = useState(profiledata.aboutMe)
   const [aboutMeDraft, setAboutMeDraft] = useState(aboutMe)
 
   const [workExp, setWorkExp] = useState(profiledata.workExperience)
   const [workExpDraft, setWorkExpDraft] = useState(workExp)
+
+  const [education, setEducation] = useState(profiledata.education)
+  const [educationDraft, setEducationDraft] = useState(education)
+
+  const [skills, setSkills] = useState(profiledata.skills)
+  const [skillsDraft, setSkillsDraft] = useState(skills)
   
   
   const getChildProfileComponent = (title) => {
@@ -40,7 +50,9 @@ const Profile = () => {
         case "Work Experience":
             return <WorkExperience workExp={workExp}/>;
         case "Education":
-            return <Education />;
+            return <Education education={education}/>;
+        case "Skills":
+            return <Skills skills={skills}/>;
         default:
             return null; // Fallback if no match
     }
@@ -49,17 +61,27 @@ const Profile = () => {
   const getChildModalComponent = () => {
     switch (componentTitle) {
         case "About Me":
-            return <EditAboutMe aboutMeDraft={aboutMeDraft} setAboutMeDraft={setAboutMeDraft}/>;
+          return <EditAboutMe aboutMeDraft={aboutMeDraft} setAboutMeDraft={setAboutMeDraft}/>;
         case "Work Experience":
           return <EditWork workExpDraft={workExpDraft} setWorkExpDraft={setWorkExpDraft} />
+        case "Education":
+          return <EditEducation educationDraft={educationDraft} setEducationDraft={setEducationDraft}/>;
+        case "Skills":
+          return <EditSkills skillsDraft={skillsDraft} setSkillsDraft={setSkillsDraft}/>;
         default:
-            return null; // Fallback if no match
+          return null; // Fallback if no match
     }
   };
 
   const handleSave = () => {
     if (componentTitle === "About Me") {
         setAboutMe(aboutMeDraft);
+    } else if (componentTitle === "Work Experience") {
+        setWorkExp(workExpDraft);
+    } else if (componentTitle === "Education") {
+        setEducation(educationDraft);
+    } else if (componentTitle === "Skills") {
+        setSkills(skillsDraft);
     }
   }
 

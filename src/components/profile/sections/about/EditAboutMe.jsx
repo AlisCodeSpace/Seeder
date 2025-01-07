@@ -7,7 +7,7 @@ const EditAboutMe = ({ aboutMeDraft, setAboutMeDraft }) => {
     <div>
         <Textarea
           isClearable
-          className='text-primary'
+          className='text-gray-700'
           defaultValue={aboutMeDraft}
           onChange={(e) => setAboutMeDraft(e.target.value)}
           placeholder="Tell us about yourself"

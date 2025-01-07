@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const Input = ({ ref, className, type, placeholder, value, id, name, handleChange, error }) => {
-    const classes = `${className || ''} bg-transparent rounded-md px-2 py-2 border text-primary placeholder-gray-500 w-full outline-none ${error ? 'border-red-700 text-red-700 focus:border-red-700' : 'border-gray-400 focus:border-primary'}`
+const Input = ({ ref, className, type, placeholder, value, id, name, handleChange, error, onKeyDown }) => {
+    const classes = `${className || ''} bg-transparent rounded-md px-2 py-2 border text-gray-700 placeholder-gray-500 w-full outline-none ${error ? 'border-red-700 text-red-700 focus:border-red-700' : 'border-gray-400 focus:border-gray-700'}`
 
     const renderInput = () => (
         <input 
@@ -13,7 +13,8 @@ const Input = ({ ref, className, type, placeholder, value, id, name, handleChang
             id={id} 
             name={name}  
             onChange={handleChange}
-            ref={ref} 
+            ref={ref}
+            onKeyDown={onKeyDown} 
             required 
         />  
     )

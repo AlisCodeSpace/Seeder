@@ -11,7 +11,7 @@ export const EditModal = ({ isOpen, onOpenChange, onSave, title, children }) => 
 
   return (
     <>
-      <Modal className="h-5/6" isOpen={isOpen} isDismissable={false} onOpenChange={onOpenChange}>
+      <Modal className="h-[95%] overflow-scroll" isOpen={isOpen} isDismissable={false} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
