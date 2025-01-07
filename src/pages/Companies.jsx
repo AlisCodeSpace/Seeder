@@ -15,7 +15,7 @@ const Companies = () => {
   ))
   
   return (
-    <div className='my-6 px-2'>
+    <div className='py-6 px-2'>
       {/* <SearchCompanies /> */}
 
       <div className='flex flex-wrap items-center justify-center gap-3 mt-8'>
