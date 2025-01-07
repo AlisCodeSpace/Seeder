@@ -1,0 +1,7 @@
+.date-wrapper span {
+    @apply text-gray-700 text-[16px];
+}
+
+div[data-slot='input-wrapper'] {
+    @apply rounded-md bg-transparent border border-gray-400 shadow-none text-primary
+}
