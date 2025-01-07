@@ -48,7 +48,7 @@ const Company = () => {
     }
 
     return (
-        <div className='flex flex-col items-center h-auto w-full my-6'>
+        <div className='flex flex-col items-center h-auto w-full py-6'>
             <div className='flex justify-between items-center w-full px-6'>
                 <Link to='/companies'><LinkBackwardIcon className='text-gray-700'/></Link>
             </div>
