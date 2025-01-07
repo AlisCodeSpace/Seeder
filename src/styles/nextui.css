@@ -3,5 +3,5 @@
 }
 
 div[data-slot='input-wrapper'] {
-    @apply rounded-md bg-transparent border border-gray-400 shadow-none text-primary
+    @apply rounded-md bg-transparent border border-gray-400 shadow-none text-gray-700
 }

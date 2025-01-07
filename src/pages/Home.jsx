@@ -6,7 +6,7 @@ import Navbar from "../components/global/Navbar"
 const Home = () => {
   return (
     <div className="relative container">
-      <div className="pb-24 h-screen">
+      <div className="pb-24 min-h-screen">
         <Outlet />
       </div>
       <Navbar />
