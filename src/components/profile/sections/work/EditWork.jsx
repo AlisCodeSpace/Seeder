@@ -37,7 +37,6 @@ const EditWork = ({ workExpDraft, setWorkExpDraft }) => {
       <div className="w-full bg-white rounded-md px-4 py-3 overflow-hidden" key={index}>
         <div className="flex justify-between items-center">
           <span className="text-primary">Work Experience {index + 1}</span>
-
           <div>
             <button
               onClick={() => toggleCollapse(index)}

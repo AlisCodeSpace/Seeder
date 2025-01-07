@@ -24,7 +24,7 @@ export const EditModal = ({ isOpen, onOpenChange, onSave, title, children }) => 
 
               {/* Modal Footer */}
               <ModalFooter>
-                <Button className="font-medium" color="danger" variant="light" onPress={onClose}>
+                <Button className="bg-red-700 text-white font-medium rounded-md" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button className="bg-primary text-white rounded-md font-medium" onPress={() => {
