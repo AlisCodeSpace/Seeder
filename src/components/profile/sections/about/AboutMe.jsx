@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const AboutMe = ({ aboutMe }) => {
 
   return (
     <div>
-        <p>{aboutMe}</p>
+        <p className='text-gray-900'>{aboutMe}</p>
     </div>
   )
 }

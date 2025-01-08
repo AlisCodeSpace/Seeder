@@ -22,6 +22,8 @@ import EditWork from '../components/profile/sections/work/EditWork'
 import EditEducation from '../components/profile/sections/education/EditEducation'
 import Skills from '../components/profile/sections/skills/Skills'
 import EditSkills from '../components/profile/sections/skills/EditSkills'
+import UploadResume from '../components/profile/sections/resume/UploadResume'
+import Resume from '../components/profile/sections/resume/Resume'
 
 
 const Profile = () => {
@@ -41,6 +43,9 @@ const Profile = () => {
 
   const [skills, setSkills] = useState(profiledata.skills)
   const [skillsDraft, setSkillsDraft] = useState(skills)
+
+  const [resume, setResume] = useState(profiledata.resume)
+  const [resumeDraft, setResumeDraft] = useState(resume)
   
   
   const getChildProfileComponent = (title) => {
@@ -52,7 +57,9 @@ const Profile = () => {
         case "Education":
             return <Education education={education}/>;
         case "Skills":
-            return <Skills skills={skills}/>;
+            return <Skills skills={skills} />;
+        case "Resume":
+            return <Resume resume={resume} />
         default:
             return null; // Fallback if no match
     }
@@ -68,6 +75,8 @@ const Profile = () => {
           return <EditEducation educationDraft={educationDraft} setEducationDraft={setEducationDraft}/>;
         case "Skills":
           return <EditSkills skillsDraft={skillsDraft} setSkillsDraft={setSkillsDraft}/>;
+        case "Resume":
+          return <UploadResume resumeDraft={resumeDraft} setResumeDraft={setResumeDraft}/>
         default:
           return null; // Fallback if no match
     }
@@ -75,13 +84,15 @@ const Profile = () => {
 
   const handleSave = () => {
     if (componentTitle === "About Me") {
-        setAboutMe(aboutMeDraft);
+      setAboutMe(aboutMeDraft);
     } else if (componentTitle === "Work Experience") {
-        setWorkExp(workExpDraft);
+      setWorkExp(workExpDraft);
     } else if (componentTitle === "Education") {
-        setEducation(educationDraft);
+      setEducation(educationDraft);
     } else if (componentTitle === "Skills") {
-        setSkills(skillsDraft);
+      setSkills(skillsDraft);
+    } else if (componentTitle === "Resume") {
+      setResume(resumeDraft)
     }
   }
 

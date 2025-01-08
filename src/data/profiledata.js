@@ -48,5 +48,11 @@ const profiledata = {
     "SQL",
     "NoSQL",
   ],
+  resume: {
+    name: "Majid Onaisy - CV - UI/UX Designer",
+    size: "867 KB",
+    lastModified: "5 Jan 2025",
+    filePath: "../assets/files/CV.pdf",
+  },
 };
 export default profiledata;

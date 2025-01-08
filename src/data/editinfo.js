@@ -4,6 +4,7 @@ import {
   DiplomaIcon,
   ConstellationIcon,
   BookEditIcon,
+  ContactBookIcon,
 } from "../assets/icons/Icons";
 
 const navlinks = [
@@ -24,9 +25,14 @@ const navlinks = [
     icon: ConstellationIcon,
   },
   {
+    title: "Resume",
+    icon: ContactBookIcon,
+  },
+  {
     title: "Account Info",
     icon: PencilEdit01Icon,
   },
+  
 ];
 
 export default navlinks;

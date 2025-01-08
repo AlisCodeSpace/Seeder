@@ -17,11 +17,11 @@ const WorkExperience = ({ workExp }) => {
               {/* Render company and position if both are present */}
               {(company || position) && (
                 <div className="flex items-center gap-2 text-gray-900">
-                  {company && <span className="text-sm">{company}</span>}
+                  {company && <span className="text-[16px]">{company}</span>}
                   {company && position && (
-                    <div className="bg-gray-800 rounded-full w-[2px] h-[2px]" />
+                    <div className="bg-gray-800 rounded-full w-[3px] h-[3px]" />
                   )}
-                  {position && <span className="text-sm">{position}</span>}
+                  {position && <span className="text-[16px]">{position}</span>}
                 </div>
               )}
 
