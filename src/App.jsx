@@ -11,7 +11,7 @@ import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center min-h-screen">
       <AppRoutes /> 
     </div>
   );

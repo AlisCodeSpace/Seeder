@@ -43,11 +43,11 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-4 px-10">
+    <div className="flex flex-col items-center justify-center h-screen gap-4 px-10 lg:border lg:w-1/3 lg:shadow-md lg:h-[680px] lg:rounded-md">
       {/* Logo */}
-      <div className='mb-5'>
+      <div className='mb-3'>
         {!loaded && <ImagePlacehoderSkeleton />}
-        <img src={Seeder} width={168} alt="Seeder Logo" onLoad={() => setLoaded(true)} className={`${
+        <img src={Seeder} width={168} alt="Seeder Logo" onLoad={() => setLoaded(true)} className={`lg:w-[128px] ${
           loaded ? "block" : "hidden"
         }`}/>
       </div>

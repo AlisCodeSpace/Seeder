@@ -32,8 +32,8 @@ const LoginForm = () => {
 
   return (
     /* Login Form */
-    <div className='flex flex-col items-center gap-10 w-full'>
-        <h1 className='text-3xl font-medium text-gray-800'><span className='text-primary '>Welcome</span> back!</h1>
+    <div className='flex flex-col items-center gap-10 w-full lg:gap-8'>
+        <h1 className='text-3xl font-medium text-gray-800 lg:text-2xl'>Login to your <span className='text-primary '> Seeder </span>account</h1>
         <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center gap-5 w-full'>
           {/* Username input */}
           <Input 
@@ -60,7 +60,7 @@ const LoginForm = () => {
 
           {/* Forgot Password */}
           <div className='flex items-center justify-end w-full'>
-              <Link to='/forgotpass' className='link text-[16px] text-gray-800'>Forgot Password?</Link>
+              <Link to='/forgotpass' className='link text-gray-800 text-lg'>Forgot Password?</Link>
           </div>
 
           {/* Submit Button */}
