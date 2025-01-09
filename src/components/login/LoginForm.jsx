@@ -33,7 +33,7 @@ const LoginForm = () => {
   return (
     /* Login Form */
     <div className='flex flex-col items-center gap-10 w-full lg:gap-8'>
-        <h1 className='text-3xl font-medium text-gray-800 lg:text-2xl'>Login to your <span className='text-primary '> Seeder </span>account</h1>
+        <h1 className='text-3xl font-medium text-gray-800 lg:text-2xl'>Welcome to <span className='text-primary '> Seeder </span></h1>
         <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center gap-5 w-full'>
           {/* Username input */}
           <Input 

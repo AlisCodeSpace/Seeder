@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Jobs from "../pages/Jobs";
 import LoadingScreen from '../skeletons/LoadingScreen';
 import Company from "../pages/Company";
+import { useGlobalContext } from "../contexts/GlobalContexts";
 
 // Lazy load components
 const Login = lazy(() => import("../pages/Login"));
@@ -20,8 +21,9 @@ const NotFound = lazy(() => import("../pages/NotFound"));
 
 
 const AppRoutes = () => {
+  const { isMobile } = useGlobalContext()
+
   useEffect(() => {
-    console.log('Importing Jobs')
     import("../pages/Jobs");
   }, []);
 
