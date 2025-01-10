@@ -68,14 +68,14 @@ const JobDescription = ({ jobDetails }) => {
         </div>
 
         {/* Required Skills */}
-        <div className='mb-12'>
+        <div className='mb-12 lg:mb-6'>
             <h2 className='h2'>Required Skills</h2>
             <ul className='mt-2 pl-4'>
                 {renderSkills}
             </ul>
         </div>
 
-        <div className='w-full fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4'>
+        <div className='w-full fixed bottom-4 max-sm:left-1/2 max-sm:transform max=sm:-translate-x-1/2 px-4 lg:sticky'>
             <Button type='button' className='bg-primary text-white w-full'>Apply</Button>
         </div>
     </div>

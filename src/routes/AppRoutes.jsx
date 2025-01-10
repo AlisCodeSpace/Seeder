@@ -35,6 +35,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />}>
             {/* Nested Routes for Home */}
             <Route path="jobs" element={<Jobs />} />
+            <Route path="jobs/:id" element={<Jobs />} />
             <Route path="companies" element={<Companies />} />
             <Route path="applications" element={<Applications />} />
             <Route path="profile" element={<Profile />} />
@@ -42,7 +43,7 @@ const AppRoutes = () => {
           </Route>
     
           {/* Other Routes */}  
-          <Route path="jobs/:id" element={<JobDetails />} />
+          {isMobile && <Route path="jobs/:id" element={<JobDetails />} />}
           <Route path="companies/:id" element={<Company />} />
 
           {/*Other Routes */}

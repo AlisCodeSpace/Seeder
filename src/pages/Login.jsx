@@ -13,7 +13,7 @@ import { ImagePlacehoderSkeleton } from '../skeletons/ImagePlaceholderSkeleton';
 const Login = () => {
   const [loaded, setLoaded] = useState(false);
   return (
-    <div className='flex items-center gap-20 w-full px-6 lg:w-2/3 lg:bg-white lg:border lg:h-[80vh] lg:rounded-md lg:shadow-md'>
+    <div className='flex items-center gap-20 w-full px-6 lg:w-2/3 lg:bg-white lg:border lg:h-[90vh] lg:rounded-md lg:shadow-md'>
       {/* Logo */}
       <div className='hidden w-1/2 lg:block'>
         <img src={LoginImage} width={600} alt="Login Image" />

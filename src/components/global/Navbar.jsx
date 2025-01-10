@@ -23,25 +23,27 @@ const Navbar = () => {
 
   const renderDesktopNav = () => (
     <div>
-      <nav className="w-full flex justify-between items-center py-3 px-6 shadow-md bg-white z-50">
+      <nav className="w-full flex justify-between items-center py-1 px-6 shadow-md bg-white z-50">
         {/* Logo */}
         <div>
-          <img src={Seeder} width={64} alt="Seeder Light Logo" />
+          <img src={Seeder} width={48} alt="Seeder Light Logo" />
         </div>
 
         {/* Middle Nav Elements */}
         <div className="flex items-center gap-4">
-          <NavLink to='jobs' className={({ isActive }) => `link ${isActive ? 'text-primary' : ''}`}>Jobs</NavLink>
-          <NavLink to='companies' className={({ isActive }) => `link ${isActive ? 'text-primary' : ''}`}>Companies</NavLink>
+          {navlinks.map((link, index) => (
+            <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary' : 'text-gray-600'}`}>
+              <span>{React.createElement(link.icon)}</span>
+            </NavLink>
+          ))}
+          {/* <NavLink to='jobs' className={({ isActive }) => `link ${isActive ? 'text-primary' : ''}`}>Jobs</NavLink>
+          <NavLink to='companies' className={({ isActive }) => `link ${isActive ? 'text-primary' : ''}`}>Companies</NavLink> */}
         </div>
 
         {/* Login and Register */}
         <div className="flex items-center gap-4">
           <Link to='/login' className='link'>Login</Link>
-
-          <Link
-            className="link"
-          >Register</Link>
+          <Link to="/register" className="link">Register</Link>
         </div>
       </nav>
     </div>
