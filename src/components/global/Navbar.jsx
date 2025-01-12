@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const renderDesktopNav = () => (
     <div>
-      <nav className="w-full flex justify-between items-center py-1 px-6 shadow-md bg-white z-50">
+      <nav className="w-full flex justify-between items-center py-1 px-6 shadow-sm bg-white z-50">
         {/* Logo */}
         <div>
           <img src={Seeder} width={48} alt="Seeder Light Logo" />
