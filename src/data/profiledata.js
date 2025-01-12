@@ -55,4 +55,5 @@ const profiledata = {
     filePath: "../assets/files/CV.pdf",
   },
 };
+
 export default profiledata;

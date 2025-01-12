@@ -12,10 +12,12 @@ import { useGlobalContext } from '../contexts/GlobalContexts'
 import JobDetailsDesktop from '../components/jobs/JobDetailsDesktop'
 import { Link } from 'react-router-dom'
 import Button from '../ui/Button'
+import { useUserContext } from '../contexts/UserContext'
 
 
 const Jobs = () => {
   const { isMobile } = useGlobalContext()
+  const { user } = useUserContext()
   const renderJobs = jobs.map((job) => (
     <Job 
       key={job.id}
@@ -47,7 +49,7 @@ const Jobs = () => {
           <JobDetailsDesktop />
           )}
 
-          {!isMobile && (
+          {(!isMobile && user) && (
           <div className='relative flex flex-col gap-5 w-1/5'>
             <div className='sticky top-4 bg-white rounded-md shadow-md w-full h-[300px] flex flex-col items-center justify-center'>
                 <img src={ProfileImg} width={92} alt="Profile Image" className='rounded-full'/>

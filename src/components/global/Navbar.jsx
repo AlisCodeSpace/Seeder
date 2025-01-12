@@ -5,11 +5,14 @@ import { motion } from 'framer-motion';
 import Seeder from "../../assets/images/Seeder.png";
 
 import Button from "../../ui/Button";
-import navlinks from '../../data/navlinks'
+import { navlinks, loggedOutLinks } from '../../data/navlinks'
 import { useGlobalContext } from "../../contexts/GlobalContexts";
+import { useUserContext } from "../../contexts/UserContext";
+import { Logout03Icon } from "../../assets/icons/Icons";
 
 const Navbar = () => {
   const { isMobile } = useGlobalContext()
+  const { user, logout } = useUserContext()
   const [activeLink, setActiveLink] = useState('')
 
   const location = useLocation(); // Hook to get the current route
@@ -19,6 +22,9 @@ const Navbar = () => {
     setActiveLink(location.pathname);
   }, [location.pathname]);
 
+  const handleLogout = () => {
+    logout()
+  }
 
 
   const renderDesktopNav = () => (
@@ -30,20 +36,24 @@ const Navbar = () => {
         </div>
 
         {/* Middle Nav Elements */}
-        <div className="flex items-center gap-4">
+        {user ? <div className="flex items-center gap-4">
           {navlinks.map((link, index) => (
             <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary' : 'text-gray-600'}`}>
               <span>{React.createElement(link.icon)}</span>
             </NavLink>
           ))}
-          {/* <NavLink to='jobs' className={({ isActive }) => `link ${isActive ? 'text-primary' : ''}`}>Jobs</NavLink>
-          <NavLink to='companies' className={({ isActive }) => `link ${isActive ? 'text-primary' : ''}`}>Companies</NavLink> */}
-        </div>
+        </div> : <div className="flex items-center gap-4">
+          {loggedOutLinks.map((link, index) => (
+            <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary' : 'text-gray-600'}`}>
+              <span>{React.createElement(link.icon)}</span>
+            </NavLink>
+          ))}
+        </div>}
 
         {/* Login and Register */}
         <div className="flex items-center gap-4">
-          <Link to='/login' className='link'>Login</Link>
-          <Link to="/register" className="link">Register</Link>
+          {user ? <button onClick={handleLogout} className="text-red-700 text-lg flex gap-1"><Logout03Icon /></button> : <Link to='/login' className='link'>Login</Link>}
+          {!user && <Link to="/register" className="link">Register</Link>}
         </div>
       </nav>
     </div>
@@ -68,12 +78,20 @@ const Navbar = () => {
     </NavLink>
   ))
 
+  const renderLoggedOutLinks = loggedOutLinks.map((link, index) => 
+    (
+    <NavLink key={index} to={link.path} className={({isActive}) =>`mobile-navlink ${isActive ? 'text-primary' : 'text-gray-600'}`}>
+        <span>{React.createElement(link.icon)}</span>
+        {/* <span className="text-sm font-medium">{link.text}</span> */}
+    </NavLink>
+  ))
+
   const renderMobileNav = () => (
     <div>
         {/* <div className="w-full h-16"></div> */}
         <nav className="fixed bottom-0 w-full border shadow-md bg-white z-50">
             <div className="flex justify-around items-center">
-                {renderNavLinks}
+                {user ? renderNavLinks : renderLoggedOutLinks}
             </div>
         </nav>
     </div>

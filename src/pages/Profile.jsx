@@ -24,76 +24,70 @@ import Skills from '../components/profile/sections/skills/Skills'
 import EditSkills from '../components/profile/sections/skills/EditSkills'
 import UploadResume from '../components/profile/sections/resume/UploadResume'
 import Resume from '../components/profile/sections/resume/Resume'
+import useProfileState from '../hooks/useProfileState'
 
 
 const Profile = () => {
   const { editProfile, toggleEditProfile } = useGlobalContext()
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
-
   const [componentTitle, setComponentTitle] = useState('')
 
-  const [aboutMe, setAboutMe] = useState(profiledata.aboutMe)
-  const [aboutMeDraft, setAboutMeDraft] = useState(aboutMe)
-
-  const [workExp, setWorkExp] = useState(profiledata.workExperience)
-  const [workExpDraft, setWorkExpDraft] = useState(workExp)
-
-  const [education, setEducation] = useState(profiledata.education)
-  const [educationDraft, setEducationDraft] = useState(education)
-
-  const [skills, setSkills] = useState(profiledata.skills)
-  const [skillsDraft, setSkillsDraft] = useState(skills)
-
-  const [resume, setResume] = useState(profiledata.resume)
-  const [resumeDraft, setResumeDraft] = useState(resume)
+  const {
+    aboutMe,
+    aboutMeDraft,
+    setAboutMeDraft,
+    workExp,
+    workExpDraft,
+    setWorkExpDraft,
+    education,
+    educationDraft,
+    setEducationDraft,
+    skills,
+    skillsDraft,
+    setSkillsDraft,
+    resume,
+    resumeDraft,
+    setResumeDraft,
+    updateState,
+  } = useProfileState();
   
   
   const getChildProfileComponent = (title) => {
     switch (title) {
-        case "About Me":
-            return <AboutMe aboutMe={aboutMe}/>;
-        case "Work Experience":
-            return <WorkExperience workExp={workExp}/>;
-        case "Education":
-            return <Education education={education}/>;
-        case "Skills":
-            return <Skills skills={skills} />;
-        case "Resume":
-            return <Resume resume={resume} />
-        default:
-            return null; // Fallback if no match
+      case "About Me":
+        return <AboutMe aboutMe={aboutMe}/>;
+      case "Work Experience":
+        return <WorkExperience workExp={workExp}/>;
+      case "Education":
+        return <Education education={education}/>;
+      case "Skills":
+        return <Skills skills={skills} />;
+      case "Resume":
+        return <Resume resume={resume} />
+      default:
+        return null; // Fallback if no match
     }
   };
 
   const getChildModalComponent = () => {
     switch (componentTitle) {
-        case "About Me":
-          return <EditAboutMe aboutMeDraft={aboutMeDraft} setAboutMeDraft={setAboutMeDraft}/>;
-        case "Work Experience":
-          return <EditWork workExpDraft={workExpDraft} setWorkExpDraft={setWorkExpDraft} />
-        case "Education":
-          return <EditEducation educationDraft={educationDraft} setEducationDraft={setEducationDraft}/>;
-        case "Skills":
-          return <EditSkills skillsDraft={skillsDraft} setSkillsDraft={setSkillsDraft}/>;
-        case "Resume":
-          return <UploadResume resumeDraft={resumeDraft} setResumeDraft={setResumeDraft}/>
-        default:
-          return null; // Fallback if no match
+      case "About Me":
+        return <EditAboutMe aboutMeDraft={aboutMeDraft} setAboutMeDraft={setAboutMeDraft}/>;
+      case "Work Experience":
+        return <EditWork workExpDraft={workExpDraft} setWorkExpDraft={setWorkExpDraft} />
+      case "Education":
+        return <EditEducation educationDraft={educationDraft} setEducationDraft={setEducationDraft}/>;
+      case "Skills":
+        return <EditSkills skillsDraft={skillsDraft} setSkillsDraft={setSkillsDraft}/>;
+      case "Resume":
+        return <UploadResume resumeDraft={resumeDraft} setResumeDraft={setResumeDraft}/>
+      default:
+        return null; // Fallback if no match
     }
   };
 
   const handleSave = () => {
-    if (componentTitle === "About Me") {
-      setAboutMe(aboutMeDraft);
-    } else if (componentTitle === "Work Experience") {
-      setWorkExp(workExpDraft);
-    } else if (componentTitle === "Education") {
-      setEducation(educationDraft);
-    } else if (componentTitle === "Skills") {
-      setSkills(skillsDraft);
-    } else if (componentTitle === "Resume") {
-      setResume(resumeDraft)
-    }
+    updateState(componentTitle)
   }
 
   const renderProfileInputs = editinfo.map((item, index) => (

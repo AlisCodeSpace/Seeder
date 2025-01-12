@@ -7,7 +7,7 @@ import {
   Notification03Icon,
 } from "../assets/icons/Icons";
 
-const navlinks = [
+export const navlinks = [
   {
     path: "/jobs",
     icon: Briefcase05Icon, // Reference to the component
@@ -35,4 +35,21 @@ const navlinks = [
   },
 ];
 
-export default navlinks;
+export const loggedOutLinks = [
+  {
+    path: "/jobs",
+    icon: Briefcase05Icon, // Reference to the component
+    // text: "Jobs",
+  },
+  {
+    path: "/companies",
+    icon: Building06Icon,
+    // text: "Companies",
+  },
+  {
+    path: "/login",
+    icon: Login03Icon,
+    // text: "Notifications",
+  },
+]
+
